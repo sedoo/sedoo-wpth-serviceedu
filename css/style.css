@@ -967,27 +967,25 @@ a[class*="th"]:hover {
 }
 
 @media (min-width:1300px) {                    /*------------  1300px  --------------------------*/
-    
-/*
-    body {
-        padding-top: 0px;
-    }
-    
+
     [for="menu-toggle"] {
         display: none;
     }
-    
-    .wrapper-container {
+
+   
+
+    .wrapper-container.page {
         position: relative;
       max-width: 1300px;
     }
+
     
     [id="sidebar-wrapper"] {
         z-index: 1000;
         position: absolute;
         left: 0;
         top: 33px;
-        width: 275px;
+        width: 375px;
         background:none;
     }
     .sidebar-nav > li {
@@ -1012,11 +1010,11 @@ a[class*="th"]:hover {
         color: #333;
     }
     
-    .wrapper-container > main{
-        width: 1000px;
-        margin-left: 300px;
+    .wrapper-container.page > main{
+        width: 700px;
+        margin-left: 400px;
     }
-*/
+
     
     .embed > article {
         margin: 15px;
