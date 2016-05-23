@@ -16,6 +16,6 @@
             <img src="images/icon_service_edu.png" alt="">
             <h1>Service Educatif<span>Observatoire Midi-Pyrénées</span></h1>
         </a>
-        <?php include('nav-main.php'); ?>
+        <a href="page.php">A propos / Echanges</a>
         <?php include('nav-top.php'); ?>
     </header>
