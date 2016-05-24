@@ -8,13 +8,18 @@ $theme=$_GET["theme"];
 
     <main role="main" class="embed">
       
-       <h1 class="<?php echo "$theme"; ?>Border <?php echo "$theme"; ?>Txt"><?php echo "$theme"; ?></h1>
+       <h1 class="<?php echo "$theme"; ?>Border <?php echo "$theme"; ?>Txt">
+           <svg class="">
+              <use xlink:href="#<?php echo "$theme"; ?>"/>
+            </svg>
+            <span><?php echo "$theme"; ?></span>
+        </h1>
        
        <input type="radio" id="filter-format-all" name="filter-format" checked>
        <input type="radio" id="filter-format-fichePedagogique" name="filter-format">
        <input type="radio" id="filter-format-activite" name="filter-format">
        <input type="radio" id="filter-format-video" name="filter-format">
-       <input type="radio" id="filter-format-outil" name="filter-format">
+       <input type="radio" id="filter-format-outils" name="filter-format">
        <input type="radio" id="filter-format-metier" name="filter-format">
        
        <nav role="filter">
@@ -22,7 +27,7 @@ $theme=$_GET["theme"];
             <label for="filter-format-fichePedagogique" class="btn-filter"><span class="icon-fiche"></span> Fiche pédagogique</label>
             <label for="filter-format-activite" class="btn-filter"><span class="icon-activite"></span> Activités</label>
             <label for="filter-format-video" class="btn-filter"><span class="icon-video"></span> Vidéos</label>
-            <label for="filter-format-outil" class="btn-filter"><span class="icon-outils"></span> Outils pédagogiques</label>
+            <label for="filter-format-outils" class="btn-filter"><span class="icon-outils"></span> Outils pédagogiques</label>
             <label for="filter-format-metier" class="btn-filter"><span class="icon-metier"></span> Fiches métiers</label>
        </nav>
 

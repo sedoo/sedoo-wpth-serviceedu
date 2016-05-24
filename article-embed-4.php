@@ -1,4 +1,4 @@
-<article data-format="outil">
+<article data-format="outils">
     <header>
         <p><span class="icon-outils"></span> Outils pédagogiques</p>
         <h1>L'activité des masses d'air Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet

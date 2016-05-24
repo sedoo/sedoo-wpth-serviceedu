@@ -1,15 +1,15 @@
 <nav role="top-menu">
-    <a href="archive.php?theme=aero">
-         <svg class="">
-          <use xlink:href="#aero"/>
-        </svg>
-        <span>Atmosphère</span>
-    </a>
     <a href="archive.php?theme=astro">
          <svg class="">
           <use xlink:href="#astro"/>
         </svg>
         <span>Astrophysique</span>
+    </a>
+    <a href="archive.php?theme=aero">
+         <svg class="">
+          <use xlink:href="#aero"/>
+        </svg>
+        <span>Atmosphère</span>
     </a>
     <a href="archive.php?theme=biosphere">
          <svg class="">

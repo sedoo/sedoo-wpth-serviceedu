@@ -37,7 +37,7 @@
     </section>
 </footer>
 
-
+<?php include('svg/disciplines.svg');?>
 <?php include('footer-script.php');?>
 
 </body>

@@ -8,7 +8,7 @@
     </header>
     <section>
        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit quasi quibusdam temporibus voluptatem consequuntur numquam blanditiis suscipit, obcaecati assumenda!</p>
-        <a href="single.php" class="tag"><span class="glyphicon glyphicon-plus"></span> Lire la suite</a>
+        <a href="single.php?theme=<?php echo "$theme"; ?>" class="tag"><span class="glyphicon glyphicon-plus"></span> Lire la suite</a>
     </section>
     
 </article>
