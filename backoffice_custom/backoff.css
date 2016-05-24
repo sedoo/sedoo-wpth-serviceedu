@@ -1,0 +1,20 @@
+
+/*** BACK OFFICE CUSTOM ***/
+
+
+[id="list"] {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.termBox {
+    width: 300px;
+    margin: 20px;
+    padding:0 20px 20px;
+    background: #FFF;
+    border:1px solid #CCC;
+    border-radius: 5px;
+}
+
+.termBox > h2 > a {display: block}
+.termBox > h2 > a > span {float: right;}

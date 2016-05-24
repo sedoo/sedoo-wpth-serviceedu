@@ -8,7 +8,7 @@
  */
 
 get_header(); ?>
-<h1>ARCHIVE.PHP</h1>
+<h1>TAXONOMIE.PHP</h1>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
