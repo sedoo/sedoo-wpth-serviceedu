@@ -44,15 +44,14 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
                     <?php endforeach; 
                 endif; ?>
                     <div>
-                        <p>
+                        
                         <?php
                         if( $typeressources ): 
                             foreach( $typeressources as $typeressource ): ?>
-                            <span class="icon-<?php echo $typeressource->slug; ?>"></span> <?php echo $typeressource->name; ?>
+                            <p><span class="icon-<?php echo $typeressource->slug; ?>"></span> <?php echo $typeressource->name; ?></p>
                         <?php 
                             endforeach; 
                         endif; ?>
-                        </p>
                     </div>
                 </section>
                 
@@ -95,7 +94,17 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
                 </section>
             </aside>
             <footer>
-                
+                <?php
+                    edit_post_link(
+                        sprintf(
+                            /* translators: %s: Name of current post */
+                            esc_html__( 'Edit %s', 'portal-serviceedu' ),
+                            the_title( '<span class="screen-reader-text">"', '"</span>', false )
+                        ),
+                        '<span class="edit-link">',
+                        '</span>'
+                    );
+                ?>
             </footer>
 
 

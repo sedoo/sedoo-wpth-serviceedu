@@ -3,7 +3,7 @@
          <svg class="">
           <use xlink:href="#astro"/>
         </svg>
-        <span>Astrophysique</span>
+        <span>Astronomie</span>
     </a>
     <a href="<?php bloginfo( 'url' ); ?>/thematique/aero">
          <svg class="">

@@ -957,7 +957,7 @@ main.embed {
 /*** FILTRE FORMATS
 --------------------------------*/
 input[id="filter-format-all"]:checked ~ nav [for^="filter-format"],
-input[id="filter-format-fichePedagogique"]:checked ~ nav [for="filter-format-fichePedagogique"],
+input[id="filter-format-fichepedagogique"]:checked ~ nav [for="filter-format-fichepedagogique"],
 input[id="filter-format-activite"]:checked ~ nav [for="filter-format-activite"],
 input[id="filter-format-video"]:checked ~ nav [for="filter-format-video"],
 input[id="filter-format-outils"]:checked ~ nav [for="filter-format-outils"],
@@ -967,11 +967,11 @@ input[id="filter-format-metier"]:checked ~ nav [for="filter-format-metier"]
 }
 
 input[id="filter-format-all"]:checked ~ [data-format],
-input[id="filter-format-fichePedagogique"]:checked ~ [data-format="fichePedagogique"],
-input[id="filter-format-activite"]:checked ~ [data-format="activite"],
-input[id="filter-format-video"]:checked ~ [data-format="video"],
-input[id="filter-format-outils"]:checked ~ [data-format="outils"],
-input[id="filter-format-metier"]:checked ~ [data-format="metier"]
+input[id="filter-format-fichepedagogique"]:checked ~ [data-format*="fichepedagogique"],
+input[id="filter-format-activite"]:checked ~ [data-format*="activite"],
+input[id="filter-format-video"]:checked ~ [data-format*="video"],
+input[id="filter-format-outils"]:checked ~ [data-format*="outils"],
+input[id="filter-format-metier"]:checked ~ [data-format*="metier"]
 {
     display: block;
     flex-grow:1;

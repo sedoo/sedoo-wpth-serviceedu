@@ -32,49 +32,52 @@ if (is_tax('thematique', $term)) {
             </svg>
             <span><?php echo "$title";?></span>
         </h1>
+     
+       <?php
+        include 'modules/taxonomies-filter.php';
+        taxonomies_filter(typeressource);
+        ?>
 
-       
-       <input type="radio" id="filter-format-all" name="filter-format" checked>
-       <input type="radio" id="filter-format-fichePedagogique" name="filter-format">
-       <input type="radio" id="filter-format-activite" name="filter-format">
-       <input type="radio" id="filter-format-video" name="filter-format">
-       <input type="radio" id="filter-format-outils" name="filter-format">
-       <input type="radio" id="filter-format-metier" name="filter-format">
-       
-       <nav role="filter">
-           <label for="filter-format-all" class="btn-filter"><span class="glyphicon glyphicon-tag"></span> tout</label>
-            <label for="filter-format-fichePedagogique" class="btn-filter"><span class="icon-fiche"></span> Fiche pédagogique</label>
-            <label for="filter-format-activite" class="btn-filter"><span class="icon-activite"></span> Activités</label>
-            <label for="filter-format-video" class="btn-filter"><span class="icon-video"></span> Vidéos</label>
-            <label for="filter-format-outils" class="btn-filter"><span class="icon-outils"></span> Outils pédagogiques</label>
-            <label for="filter-format-metier" class="btn-filter"><span class="icon-metier"></span> Fiches métiers</label>
-       </nav>
-<!--
-<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
--->
 		<?php
 		if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-//					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+                $typeressources = get_the_terms( $post->ID, 'typeressource'); 
+                $niveaux = get_the_terms( $post->ID, 'niveau');
+      
+                if( $typeressources ): 
+                    $dataFormat="";
+                    $output_typeressource="";
+                    foreach( $typeressources as $typeressource ): 
+                        $dataFormat.="".$typeressource->slug." ";
+                        $output_typeressource.="<p><span class=\"icon-".$typeressource->slug."\"></span> ".$typeressource->name."</p>\n";
+                    endforeach; 
+                endif; 
+            ?>
+				<article data-format="<?php echo $dataFormat;?>">
+                    <header>
+                        <?php echo $output_typeressource;?>
+                        <h1><?php the_title();?>
+                        <?php
+                        if( $niveaux ): 
+                            foreach( $niveaux as $niveau ): ?>
+                                <small>Niveau : <?php echo $niveau->name; ?></small>
+                        <?php endforeach; 
+                          endif; ?>
+                        </h1>
+                        <figure><?php the_post_thumbnail( 'full' ); ?></figure>
 
-			endwhile;
+                    </header>
+                    <section>
+                       <p><?php the_excerpt(); ?></p>
+                        <a href="<?php the_permalink(); ?>" class="tag"><span class="icon-angle-right"></span> Lire la suite</a>
+                    </section>
+
+                </article>
+
+		<?php	endwhile;
 
 			the_posts_navigation();
 
@@ -86,6 +89,8 @@ if (is_tax('thematique', $term)) {
 
 		</main>
 	</div>
+
+
 
 <?php
 //get_sidebar();
