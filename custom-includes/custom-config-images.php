@@ -14,7 +14,7 @@ add_theme_support( 'post-thumbnails' );
 // Ajout de tailles d'images
 add_action( 'after_setup_theme', 'images_setup' );
 function images_setup() {
-    add_image_size( 'panorama', 1020, 360, true );
+    add_image_size( 'panorama', 1024, 430, false );
  }
 
 

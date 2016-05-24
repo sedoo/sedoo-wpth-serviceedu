@@ -27,56 +27,87 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
 
 <div class="wrapper-container">
     
-    <main id="main" class="<?php echo $themes[0]->slug; ?>" role="main">
+    <main id="main" class="full" data-theme="<?php echo $themes[0]->slug; ?>" role="main">
         <article>
-                <header>
-                    <section role="metaTags">
-                    <?php
-                    //while ( have_posts() ) : the_post(); 
-                    if( $themes ): 
-                        foreach( $themes as $theme ): ?>
+            <header>
+                <section role="metaTags">
+            <?php
+            while ( have_posts() ) : the_post(); 
+                if( $themes ): 
+                    foreach( $themes as $theme ): ?>
+                    <a href="<?php echo get_term_link( $theme ); ?>" title="Voir toutes les documents de cette thématique">
+                        <svg class="">
+                          <use xlink:href="#<?php echo $theme->slug; ?>"/>
+                        </svg>
+                        <span><?php echo $theme->name; ?></span>
+                    </a>
+                    <?php endforeach; 
+                endif; ?>
+                    <div>
+                        <p>
+                        <?php
+                        if( $typeressources ): 
+                            foreach( $typeressources as $typeressource ): ?>
+                            <span class="icon-<?php echo $typeressource->slug; ?>"></span> <?php echo $typeressource->name; ?>
+                        <?php 
+                            endforeach; 
+                        endif; ?>
+                        </p>
+                    </div>
+                </section>
+                
+                <h1><?php the_title();?>
+                <?php
+                if( $niveaux ): 
+                    foreach( $niveaux as $niveau ): ?>
+                        <small><?php echo $niveau->name; ?></small>
+                <?php endforeach; 
+                  endif; ?>
+                </h1>
+                <figure><?php the_post_thumbnail( 'full' ); ?></figure>
+                
+            </header>
+            <section>
+                <?php the_content();?>
+            </section>
+            <aside>
+                <h2>Aller plus loin</h2>
+                <section>
+                    <h3>Mots clés</h3>
+                    <a href="" class="tag"><span class="icon-tag"></span> Truc</a>
+                    <a href="" class="tag"><span class="icon-tag"></span> Machin</a>
+                    <a href="" class="tag"><span class="icon-tag"></span> Chose</a>
+                </section>
+<!--
+                <section>
+                   <h3>Support(s)</h3>
+                    <a href="" class="tag"><span class="icon-tag"></span> Document</a>
+                    <a href="" class="tag"><span class="icon-tag"></span> Video</a>
+                    <a href="" class="tag"><span class="icon-tag"></span> Article</a>
+                </section>
+-->
+                <section>
+                    <h3>Documents associés</h3>
+                    <a href="#" class="tag"><span class="icon-fiche"></span> Fiche machin</a>
+                    <a href="#" class="tag"><span class="icon-activite"></span> Activité machin</a>
+                    <a href="#" class="tag"><span class="icon-activite"></span> Activité machin 2</a>
+                    <a href="#" class="tag"><span class="icon-picture"></span> Diaporama truc</a>
+                </section>
+            </aside>
+            <footer>
+                
+            </footer>
 
-                        <a href="<?php echo get_term_link( $theme ); ?>" title="Voir toutes les documents de cette thématique">
-                            <svg class="">
-                              <use xlink:href="#<?php echo $theme->slug; ?>"/>
-                            </svg>
-                            <span><?php echo $theme->name; ?></span>
-                        </a>
-                        <?php endforeach; 
-                    endif; ?>
-                        <div>
-                            <p>
-                            <?php
-                            if( $typeressources ): 
-                                foreach( $typeressources as $typeressource ): ?>
-
-                                
-                                <span class="icon-<?php echo $typeressource->slug; ?>"></span> <?php echo $typeressource->name; ?>
-                                
-                            <?php 
-                                endforeach; 
-                              endif; ?>
 
         <?php
-        if( $niveaux ): 
-            foreach( $niveaux as $niveau ): ?>
-
-            <a href="<?php echo get_term_link( $niveau ); ?>" title="Voir toutes les documents de cette thématique">
-                <span><?php echo $niveau->name; ?> / <?php echo $niveau->slug; ?></span>
-            </a>
-        <?php endforeach; 
-          endif; ?>
-
-
-        <?php
-            get_template_part( 'template-parts/content', 'page' );
+           // get_template_part( 'template-parts/content', 'page' );
 
             // If comments are open or we have at least one comment, load up the comment template.
             if ( comments_open() || get_comments_number() ) :
                 comments_template();
             endif;
 
-        //endwhile; // End of the loop.
+        endwhile; // End of the loop.
         ?>
 
 

@@ -7,18 +7,60 @@
  * @package portail_service_educatif
  */
 
-get_header(); ?>
-<h1>TAXONOMIE.PHP</h1>
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+get_header(); 
 
+$term=array(
+    "Atmosphère" => "aero",
+    "astro" => "Astronomie"
+);
+echo $term[Atmosphère];
+
+if (is_tax('thematique', '$term')) {
+  $title = $term[1];
+  $slugTitle = "aero";
+ }
+    
+
+
+?>
+
+
+<div class="wrapper-container">
+  <main id="main" class="embed" role="main">
+    <h1 class="<?php echo "$slugTitle"; ?>Border <?php echo "$slugTitle"; ?>Txt">
+           <svg class="">
+              <use xlink:href="#<?php echo "$slugTitle"; ?>"/>
+            </svg>
+            <span><?php echo "$title";?></span>
+        </h1>
+
+       
+       <input type="radio" id="filter-format-all" name="filter-format" checked>
+       <input type="radio" id="filter-format-fichePedagogique" name="filter-format">
+       <input type="radio" id="filter-format-activite" name="filter-format">
+       <input type="radio" id="filter-format-video" name="filter-format">
+       <input type="radio" id="filter-format-outils" name="filter-format">
+       <input type="radio" id="filter-format-metier" name="filter-format">
+       
+       <nav role="filter">
+           <label for="filter-format-all" class="btn-filter"><span class="glyphicon glyphicon-tag"></span> tout</label>
+            <label for="filter-format-fichePedagogique" class="btn-filter"><span class="icon-fiche"></span> Fiche pédagogique</label>
+            <label for="filter-format-activite" class="btn-filter"><span class="icon-activite"></span> Activités</label>
+            <label for="filter-format-video" class="btn-filter"><span class="icon-video"></span> Vidéos</label>
+            <label for="filter-format-outils" class="btn-filter"><span class="icon-outils"></span> Outils pédagogiques</label>
+            <label for="filter-format-metier" class="btn-filter"><span class="icon-metier"></span> Fiches métiers</label>
+       </nav>
+<!--
+<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+-->
 		<?php
 		if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<?php
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+//					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 
@@ -43,9 +85,10 @@ get_header(); ?>
 
 		endif; ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
 <?php
-get_sidebar();
-get_footer();
+//get_sidebar();
+get_footer();?>
+<h1>TAXONOMIE.PHP</h1>

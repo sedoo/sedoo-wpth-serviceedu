@@ -4,7 +4,6 @@
 $theme=$_GET["theme"];
 ?>
     <div class="wrapper-container">
-    <?php include('nav.php');?>
 
     <main role="main" class="embed">
       
