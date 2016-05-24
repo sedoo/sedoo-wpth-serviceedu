@@ -9,27 +9,26 @@
 
 get_header(); 
 
-$term=array(
-    "Atmosphère" => "aero",
-    "astro" => "Astronomie"
+$thematiques=array(
+    "aero" => "Atmosphère",
+    "astro" => "Astronomie",
+    "biosphere" => "Biosphère",
+    "ecologie" => "Ecologie",
+    "geosciences" => "Géosciences",
+    "oceano" => "Océanographie",
+    "planeto" => "Planétologie"
 );
-echo $term[Atmosphère];
 
-if (is_tax('thematique', '$term')) {
-  $title = $term[1];
-  $slugTitle = "aero";
+if (is_tax('thematique', $term)) {
+  $title = $thematiques[$term];
  }
-    
-
-
 ?>
-
 
 <div class="wrapper-container">
   <main id="main" class="embed" role="main">
-    <h1 class="<?php echo "$slugTitle"; ?>Border <?php echo "$slugTitle"; ?>Txt">
+    <h1 class="<?php echo "$term"; ?>Border <?php echo "$term"; ?>Txt">
            <svg class="">
-              <use xlink:href="#<?php echo "$slugTitle"; ?>"/>
+              <use xlink:href="#<?php echo "$term"; ?>"/>
             </svg>
             <span><?php echo "$title";?></span>
         </h1>
