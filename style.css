@@ -46,7 +46,7 @@ h1 {
 
 h2 {
     font-size: 1.6em;
-    margin: 0.67em 0;
+    margin: 1em 0;
 }
 
 h3 {
@@ -87,8 +87,18 @@ svg:not(:root) {
     overflow: hidden;
 }
 
+/*
 figure {
-    margin: 1em 40px;
+    margin: 20px;
+}
+*/
+
+figcaption {
+    color:#404040;
+    font-size: 13px;
+    padding: 10px;
+    margin: 10px 20px 0;
+    border-top:1px solid #ddd;
 }
 
 hr {
@@ -104,6 +114,19 @@ hr {
     border-width: 1px 0 0;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+ul, ol {padding-left: 20px; }
+
+li { list-style-position: inside;margin-bottom: 10px;}
+
+li, p {
+    line-height: 1.8;
+}
+
+p {
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 pre {
@@ -250,6 +273,9 @@ img {
     height: auto;
 }
 
+/*--------------------------------*/
+
+
 a.tag,
 body > header > a {
     text-decoration: none;
@@ -261,11 +287,14 @@ label {
     transition:all .4s ease;
 }
 
-/*--------------------------------*/
-
-
-p {
-    padding: 5px;
+blockquote {
+    margin: 20px;
+    padding: 20px;
+    border-left-width: 5px;
+    border-left-style: solid;
+    font-size: 1.8em;
+    color:#888;
+    
 }
 
 h1 small {
@@ -405,25 +434,32 @@ h1 small {
 
 /* BORDER COLOR */
 
-.aeroBorder
+.aeroBorder,
+[data-theme="aero"] blockquote
 {border-color: #90BCD1;}
 
-.astroBorder
+.astroBorder,
+[data-theme="astro"] blockquote
 {border-color: #2D4F59;}
 
-.biosphereBorder
+.biosphereBorder,
+[data-theme="biosphere"] blockquote
 {border-color: #B6CC49;}
 
-.ecologieBorder
+.ecologieBorder,
+[data-theme="ecologie"] blockquote
 {border-color: #7DBF3B;}
 
-.geosciencesBorder
+.geosciencesBorder,
+[data-theme="geosciences"] blockquote
 {border-color: #DD9946;}
 
-.oceanoBorder
+.oceanoBorder,
+[data-theme="oceano"] blockquote
 {border-color: #1F7E9E;}
 
-.planetoBorder 
+.planetoBorder,
+[data-theme="planeto"] blockquote
 {border-color: #E25B3D;}
 
 /*** HEADER COMMONS
@@ -794,8 +830,15 @@ article > header > h1 {
     text-transform: uppercase;
 }
 
-article > section {
+.full article > section {
     border-right: 1px solid #ccc;
+}
+
+.full article > section figure {
+    border: 1px solid #ddd;
+    padding: 20px 0 0;
+    text-align: center;
+    width: 100% !important;
 }
 
 article > aside {

@@ -63,7 +63,7 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
                 <?php endforeach; 
                   endif; ?>
                 </h1>
-                <figure><?php the_post_thumbnail( 'full' ); ?></figure>
+                <figure><?php the_post_thumbnail( 'illustration-article' ); ?></figure>
                 
             </header>
             <section>
@@ -128,4 +128,3 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
 //get_sidebar();
 get_footer();
 ?>
-<h1>Page.php</h1>

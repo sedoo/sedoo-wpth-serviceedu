@@ -67,7 +67,7 @@ if (is_tax('thematique', $term)) {
                         <?php endforeach; 
                           endif; ?>
                         </h1>
-                        <figure><?php the_post_thumbnail( 'full' ); ?></figure>
+                        <figure><?php the_post_thumbnail( 'illustration-article' ); ?></figure>
 
                     </header>
                     <section>
@@ -95,4 +95,3 @@ if (is_tax('thematique', $term)) {
 <?php
 //get_sidebar();
 get_footer();?>
-<h1>TAXONOMIE.PHP</h1>
