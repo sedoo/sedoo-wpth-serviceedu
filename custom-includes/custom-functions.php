@@ -14,6 +14,8 @@
 //include 'custom-helpers.php';
 
 
+include 'modules/taxonomies-filter.php';
+
 /******************************************************************
 * CUSTOM TAXONOMIES 
 *

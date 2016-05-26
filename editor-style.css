@@ -17,6 +17,8 @@ hr {
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
     border-color: #eee -moz-use-text-color -moz-use-text-color;
+    -webkit-border-image: none;
+    -o-border-image: none;
     border-image: none;
     border-style: solid none none;
     border-width: 1px 0 0;
@@ -31,4 +33,19 @@ blockquote {
     font-size: 1.8em;
     color:#888;
     
+}
+
+figure {
+    border: 1px solid #ddd;
+    padding: 20px 0 0;
+    text-align: center;
+    width: 100% !important;
+}
+
+figcaption {
+    color:#404040;
+    font-size: 13px;
+    padding: 10px;
+    margin: 10px 20px 0;
+    border-top:1px solid #ddd;
 }

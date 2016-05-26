@@ -306,6 +306,10 @@ h1 small {
     color: #AAA;
 }
 
+.skip-link {
+    display: none;
+}
+
 .wrapper-container {
     max-width: 1024px;
     margin-left: auto;
@@ -894,23 +898,26 @@ article > footer {
 
 [role="metaTags"] > * {
     flex: 1 1 auto;
-    color:#999;
-    font-weight: bold;
     margin-bottom: 20px;
+    color:#999;
+    
+    text-transform: uppercase;
 }
 
-[role="metaTags"] > a {
+[role="metaTags"] > :first-child > a {
     display: table;
     font-weight: bold;
     font-size: 1.2em;
+    color:#999;
+    text-decoration: none;
 }
 
-[role="metaTags"] > a > * {
+[role="metaTags"] > :first-child > a > * {
     display: table-cell;
     vertical-align: middle;
 }
 
-[role="metaTags"] > a > svg {
+[role="metaTags"] > :first-child > a > svg {
     height: 40px;
     width: 48px;
 }

@@ -34,7 +34,7 @@ if (is_tax('thematique', $term)) {
         </h1>
      
        <?php
-        include 'modules/taxonomies-filter.php';
+//        include 'modules/taxonomies-filter.php';
         taxonomies_filter(typeressource);
         ?>
 

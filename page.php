@@ -34,15 +34,19 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
             <?php
             while ( have_posts() ) : the_post(); 
                 if( $themes ): 
-                    foreach( $themes as $theme ): ?>
-                    <a href="<?php echo get_term_link( $theme ); ?>" title="Voir toutes les documents de cette thématique">
-                        <svg class="">
-                          <use xlink:href="#<?php echo $theme->slug; ?>"/>
-                        </svg>
-                        <span><?php echo $theme->name; ?></span>
-                    </a>
-                    <?php endforeach; 
-                endif; ?>
+                    ?>
+                    <div>
+                        <?php
+                        foreach( $themes as $theme ): ?>
+                        <a href="<?php echo get_term_link( $theme ); ?>" title="Voir toutes les documents de cette thématique">
+                            <svg class="">
+                              <use xlink:href="#<?php echo $theme->slug; ?>"/>
+                            </svg>
+                            <span><?php echo $theme->name; ?></span>
+                        </a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
                     <div>
                         
                         <?php

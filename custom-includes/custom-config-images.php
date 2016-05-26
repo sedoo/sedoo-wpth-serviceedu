@@ -15,19 +15,18 @@ add_theme_support( 'post-thumbnails' );
 /* Ajout de tailles d'images
 * https://developer.wordpress.org/reference/functions/add_image_size/
 */
-add_action( 'after_setup_theme', 'images_setup' );
 function images_setup() {
     add_image_size( 'illustration-article', 1024, 500, true );
  }
-
+add_action( 'after_setup_theme', 'images_setup' );
 
 // set default attachment setting
-add_action( 'after_setup_theme', 'default_attachment_display_settings' );
 function default_attachment_display_settings() {
     update_option( 'image_default_align', 'center' );
     update_option( 'image_default_link_type', 'none' );
     update_option( 'image_default_size', 'medium' );
 }
+add_action( 'after_setup_theme', 'default_attachment_display_settings' );
 
 /* Insérer les <img> avec dans un element <figure> + <figcaption>
 * https://css-tricks.com/snippets/wordpress/insert-images-with-figurefigcaption/
