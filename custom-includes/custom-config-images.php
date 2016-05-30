@@ -31,17 +31,6 @@ add_action( 'after_setup_theme', 'default_attachment_display_settings' );
 /* Insérer les <img> avec dans un element <figure> + <figcaption>
 * https://css-tricks.com/snippets/wordpress/insert-images-with-figurefigcaption/
 */
-//function html5_insert_image($html, $id, $caption, $title, $align, $url) {
-//  $html5 = "<figure id='post-$id media-$id' class='align-$align'>";
-//  $html5 .= "<img src='$url' alt='$title' />";
-//  if ($caption) {
-//    $html5 .= "<figcaption>$caption</figcaption>";
-//  }
-//  $html5 .= "</figure>";
-//  return $html5;
-//}
-//add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 9 );
-
 function html5_insert_image($html, $id, $caption, $title, $align, $url, $size, $alt) {
 $url = wp_get_attachment_url($id);
 $src = wp_get_attachment_image_src( $id, $size, false );

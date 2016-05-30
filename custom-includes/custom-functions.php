@@ -13,7 +13,12 @@
 */
 //include 'custom-helpers.php';
 
-
+/******************************************************************
+* MODULES
+*
+* taxonomies-filter : filtre css pour taxonomies
+*
+*/
 include 'modules/taxonomies-filter.php';
 
 /******************************************************************
