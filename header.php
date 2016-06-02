@@ -28,6 +28,6 @@
             <img src="<?php bloginfo( 'template_url' ); ?>/images/icon_service_edu.png" alt="">
             <h1>Service Educatif<span>Observatoire Midi-Pyrénées</span></h1>
         </a>
-        <a href="page.php">A propos / Echanges</a>
+        <a href="./a-propos/">A propos / Echanges</a>
         <?php include('nav-top.php'); ?>
     </header>
