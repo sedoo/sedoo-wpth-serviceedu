@@ -708,7 +708,7 @@ body > header h1 {
 /***  SIDE MENU
 ----------------------------------------------------------------------------------------*/
 
-.sidebar-nav {
+.navLeft ul {
 /*
     position: absolute;
     top: 0;
@@ -719,30 +719,31 @@ body > header h1 {
     list-style: none;
 }
 
-.sidebar-nav li {
+.navLeft ul li {
     list-style-type: none;
 }
 
-.sidebar-nav > li {
+.navLeft ul > li {
     border-bottom: 1px solid #555;
     text-transform: uppercase;
+    margin-bottom: 0;
 }
 
-.sidebar-nav li a {
+.navLeft ul li a {
     display: block;
     text-decoration: none;
     color: #333;
     font-size: 16px;
-    padding: 20px;
+    padding:10px 20px;
 }
 
-.sidebar-nav li a:hover {
+.navLeft ul li a:hover {
     text-decoration: none;
     background: #CCC;
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.navLeft ul li a:active,
+.navLeft ul li a:focus {
     text-decoration: none;
 }
 
@@ -776,6 +777,29 @@ body > header h1 {
 
 main {
     margin-top: 5px;
+}
+
+
+/*** Main PageInfo (sidemenu)
+--------------------------------*/
+main.pageInfo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+main.pageInfo > nav {
+    max-width: 375px;
+}
+
+main.pageInfo > article {
+    flex:1 1 400px;
+    margin: 0 20px 0;
+}
+
+main.pageInfo > article > header > h1 {
+    padding:0 20px;
 }
 
 
@@ -1154,36 +1178,32 @@ a[class*="th"]:hover {
       max-width: 1300px;
     }
 
+/*
     
     [id="sidebar-wrapper"] {
+
         z-index: 1000;
         position: absolute;
         left: 0;
         top: 33px;
         width: 375px;
         background:none;
+
     }
-    .sidebar-nav > li {
+    .navLeft ul > li {
         border-bottom: 1px solid #CCC;
         text-transform: uppercase;
     }
-
-    .sidebar-nav li a {
-        display: block;
-        text-decoration: none;
-        color: #333;
+*/
+    .navLeft ul li a {
+        padding:20px;
     }
-    .sidebar-nav li a:hover {
+/*
+    .navLeft ul li a:hover {
         background: #CCC;
     }
+*/
     
-    [class*="panel-collapse"] > .panel-body {
-        background: #EEE;
-    }
-
-    [class*="panel-collapse"] > .panel-body li a {
-        color: #333;
-    }
     
     .wrapper-container.page > main{
         width: 700px;
