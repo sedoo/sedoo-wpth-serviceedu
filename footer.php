@@ -23,27 +23,27 @@
     </section>
     <section role="tutelles">
         <figure>
-            <img src="http://placehold.it/150x100?text=Logo1" alt="">
+            <img src="https://placehold.it/150x100?text=Logo1" alt="">
             <figcaption></figcaption>
         </figure>
         <figure>
-            <img src="http://placehold.it/150x100?text=Logo2" alt="">
+            <img src="https://placehold.it/150x100?text=Logo2" alt="">
             <figcaption></figcaption>
         </figure>
         <figure>
-            <img src="http://placehold.it/150x100?text=Logo3" alt="">
+            <img src="https://placehold.it/150x100?text=Logo3" alt="">
             <figcaption></figcaption>
         </figure>
         <figure>
-            <img src="http://placehold.it/150x100?text=Logo4" alt="">
+            <img src="https://placehold.it/150x100?text=Logo4" alt="">
             <figcaption></figcaption>
         </figure>
         <figure>
-            <img src="http://placehold.it/150x100?text=Logo5" alt="">
+            <img src="https://placehold.it/150x100?text=Logo5" alt="">
             <figcaption></figcaption>
         </figure>
         <figure>
-            <img src="http://placehold.it/150x100?text=Logo6" alt="">
+            <img src="https://placehold.it/150x100?text=Logo6" alt="">
             <figcaption></figcaption>
         </figure>
     </section>
