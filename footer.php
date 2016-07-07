@@ -51,5 +51,9 @@
 
 <?php include('svg/disciplines.svg');?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="<?php bloginfo('template_directory');?>/js/toc.js"></script>
+<script src="<?php bloginfo('template_directory');?>/js/jquery.sticky.js"></script>
+
 </body>
 </html>
