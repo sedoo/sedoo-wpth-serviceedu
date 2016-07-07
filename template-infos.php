@@ -19,6 +19,12 @@ Template Name: Page d'information
             <section>
                 <?php the_content();?>
             </section>
+            <div>
+                <aside>
+
+                </aside>
+            </div>
+        </article>
             <footer>
                 <?php
                     edit_post_link(

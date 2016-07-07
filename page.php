@@ -73,30 +73,36 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
             <section>
                 <?php the_content();?>
             </section>
-            <aside>
-                <h2>Aller plus loin</h2>
-                <section>
-                    <h3>Mots clés</h3>
-                    <a href="" class="tag"><span class="icon-tag"></span> Truc</a>
-                    <a href="" class="tag"><span class="icon-tag"></span> Machin</a>
-                    <a href="" class="tag"><span class="icon-tag"></span> Chose</a>
-                </section>
-<!--
-                <section>
-                   <h3>Support(s)</h3>
-                    <a href="" class="tag"><span class="icon-tag"></span> Document</a>
-                    <a href="" class="tag"><span class="icon-tag"></span> Video</a>
-                    <a href="" class="tag"><span class="icon-tag"></span> Article</a>
-                </section>
--->
-                <section>
-                    <h3>Documents associés</h3>
-                    <a href="#" class="tag"><span class="icon-fiche"></span> Fiche machin</a>
-                    <a href="#" class="tag"><span class="icon-activite"></span> Activité machin</a>
-                    <a href="#" class="tag"><span class="icon-activite"></span> Activité machin 2</a>
-                    <a href="#" class="tag"><span class="icon-picture"></span> Diaporama truc</a>
-                </section>
-            </aside>
+            <div>
+                <aside>
+                    
+                    <nav role="sommaire">
+                        <h2>Sommaire</h2>
+                    </nav>
+                    <h2>Aller plus loin</h2>
+                    <section>
+                        <h3>Mots clés</h3>
+                        <a href="" class="tag"><span class="icon-tag"></span> Truc</a>
+                        <a href="" class="tag"><span class="icon-tag"></span> Machin</a>
+                        <a href="" class="tag"><span class="icon-tag"></span> Chose</a>
+                    </section>
+    <!--
+                    <section>
+                       <h3>Support(s)</h3>
+                        <a href="" class="tag"><span class="icon-tag"></span> Document</a>
+                        <a href="" class="tag"><span class="icon-tag"></span> Video</a>
+                        <a href="" class="tag"><span class="icon-tag"></span> Article</a>
+                    </section>
+    -->
+                    <section>
+                        <h3>Documents associés</h3>
+                        <a href="#" class="tag"><span class="icon-fiche"></span> Fiche machin</a>
+                        <a href="#" class="tag"><span class="icon-activite"></span> Activité machin</a>
+                        <a href="#" class="tag"><span class="icon-activite"></span> Activité machin 2</a>
+                        <a href="#" class="tag"><span class="icon-picture"></span> Diaporama truc</a>
+                    </section>
+                </aside>
+            </div>
             <footer>
                 <?php
                     edit_post_link(
