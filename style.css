@@ -1014,6 +1014,16 @@ article > footer {
     background: #fff;
 }
 
+.pageInfo > div {
+    max-width: 33.3333%;
+}
+
+.pageInfo [role="sommaire"] {
+    margin-top: 30px;
+    background: #404040 none repeat scroll 0 0;
+    color: #fff;
+}
+
 @media (min-width:768px) {
     [role="sommaire"] {
         display: block;

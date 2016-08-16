@@ -7,7 +7,11 @@ Template Name: Page d'information
 
 <div class="wrapper-container">
     <main id="main" class="pageInfo" role="main">
+        <div>
         <?php include('side-nav.php');?>
+            <nav role="sommaire">
+            </nav>
+        </div>
         <?php
         while ( have_posts() ) : the_post(); 
         ?>
@@ -19,25 +23,27 @@ Template Name: Page d'information
             <section>
                 <?php the_content();?>
             </section>
+<!--
             <div>
                 <aside>
-
+                    
                 </aside>
             </div>
+-->
         </article>
-            <footer>
+<!--            <footer>-->
                 <?php
-                    edit_post_link(
-                        sprintf(
-                            /* translators: %s: Name of current post */
-                            esc_html__( 'Edit %s', 'portal-serviceedu' ),
-                            the_title( '<span class="screen-reader-text">"', '"</span>', false )
-                        ),
-                        '<span class="edit-link">',
-                        '</span>'
-                    );
+//                    edit_post_link(
+//                        sprintf(
+//                            /* translators: %s: Name of current post */
+//                            esc_html__( 'Edit %s', 'portal-serviceedu' ),
+//                            the_title( '<span class="screen-reader-text">"', '"</span>', false )
+//                        ),
+//                        '<span class="edit-link">',
+//                        '</span>'
+//                    );
                 ?>
-            </footer>
+<!--            </footer>-->
            <?php           
         endwhile; // End of the loop.
         ?>

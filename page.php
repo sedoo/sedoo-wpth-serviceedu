@@ -129,7 +129,7 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
         endwhile; // End of the loop.
         ?>
 
-
+        </article>
 
     </main><!-- #main -->
 </div><!-- #primary -->
