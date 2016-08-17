@@ -8,12 +8,6 @@ Template Name: Page d'information
 <div class="wrapper-container">
     <main id="main" class="pageInfo" role="main">
        <?php include('side-nav.php');?>
-<!--
-        <div>
-            <nav role="sommaire">
-            </nav>
-        </div>
--->
         <?php
         while ( have_posts() ) : the_post(); 
         ?>
