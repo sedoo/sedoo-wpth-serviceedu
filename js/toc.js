@@ -7,6 +7,8 @@ $(document).ready(function(){
 	// création du nav Sommaire
 	//$('main article aside').prepend('<nav role="sommaire"></nav>');
      var i=0;
+    var navSommaire = '<nav role="sommaire"></nav>';
+    $('.current-menu-item').after(navSommaire);
     
 	// Sur chaque :header
 	$('article > section :header').each(function(){       
@@ -26,6 +28,6 @@ $(document).ready(function(){
     // Fixe le sommaire au scroll (jquery.sticky.js)
     $(window).load(function(){
       $('div aside').sticky({ topSpacing: 0 }); // utilisé sur page
-      $('div > nav[role="sommaire"]').sticky({ topSpacing: 0 }); // utilisé sur template-infos
+      $('li + nav[role="sommaire"]').sticky({ topSpacing: 0 }); // utilisé sur template-infos
     });
 });
