@@ -56,6 +56,16 @@ include 'custom-post-type.php';
 include 'custom-backoffice-menu.php';
 
 /******************************************************************
+* PERSONNALISATION DE FONCTION DU BACKOFFICE 
+*
+* fonctions affectant des fonctions du backoffice
+* revealid_id_column_content() -> Affiche les ID dans les tableaux de listing de contenu (post/page/customPost/media)
+*
+*/
+include 'custom-backoffice-custom.php';
+
+
+/******************************************************************
 * GESTION DES IMAGES
 *
 * Support des thumbnails (images à la une)
