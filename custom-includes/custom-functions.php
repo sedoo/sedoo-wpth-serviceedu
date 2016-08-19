@@ -17,9 +17,11 @@
 * MODULES
 *
 * taxonomies-filter : filtre css pour taxonomies
+* taxonomies-list : liste les terms d'une taxonomie
 *
 */
 include 'modules/taxonomies-filter.php';
+include 'modules/taxonomies-list.php';
 
 /******************************************************************
 * CUSTOM TAXONOMIES 
