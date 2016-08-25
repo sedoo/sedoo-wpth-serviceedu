@@ -24,6 +24,14 @@ include 'modules/taxonomies-filter.php';
 include 'modules/taxonomies-list.php';
 
 /******************************************************************
+* ZONES DE WIDGETS
+*
+* zones de widgets pour homepage
+*
+*/
+//include 'modules/custom-sidebar.php';
+
+/******************************************************************
 * CUSTOM TAXONOMIES 
 *
 * fonctions de déclaration des taxonomies (mots clés) personnalisés

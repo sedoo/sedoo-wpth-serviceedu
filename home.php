@@ -30,6 +30,7 @@ if (is_tax('thematique', $term)) {
         <?php
         endif;
         ?>
+        
         <section>
             <?php
 		if ( have_posts() ) :
