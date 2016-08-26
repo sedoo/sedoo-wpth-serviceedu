@@ -18,10 +18,12 @@
 *
 * taxonomies-filter : filtre css pour taxonomies
 * taxonomies-list : liste les terms d'une taxonomie
+* pages-list : liste des pages en fonction d'arguments passés à WP_Query()
 *
 */
 include 'modules/taxonomies-filter.php';
 include 'modules/taxonomies-list.php';
+include 'modules/pages-list.php';
 
 /******************************************************************
 * ZONES DE WIDGETS

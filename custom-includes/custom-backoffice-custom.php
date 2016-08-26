@@ -90,29 +90,41 @@ function custom_settings_add_menu() {
 add_action( 'admin_menu', 'custom_settings_add_menu' );
 
 // Create Custom Global Settings
-function custom_settings_page() { ?>
-  <div class="wrap">
+function custom_settings_page() { 
+  echo "<div class=\"wrap\">
     <h1>Custom Settings</h1>
-    <form method="post" action="options.php">
-       <?php
-           settings_fields('section');
-           do_settings_sections('theme-options');      
-           submit_button(); 
-       ?>          
-    </form>
-  </div>
-<?php }
+    <form method=\"post\" action=\"options.php\">";
+       settings_fields('section');
+       do_settings_sections('theme-options');      
+       submit_button();          
+    echo "</form>
+  </div>";
+}
 
 // Id de la page par défaut du lien "A propos / Echange"
-function setting_idPageDefault() { ?>
-  <input type="text" name="idPageDefault" id="idPageDefault" value="<?php echo get_option('idPageDefault'); ?>" />
-<?php }
+function setting_idPageDefault() {
+  echo "<input type=\"text\" name=\"idPageDefault\" id=\"idPageDefault\" value=\"".get_option('idPageDefault')."\" />";
+}
+
+// Id des pages à exclure du listing aléatoire de la homepage
+function setting_idPageExcluded() { 
+  echo "<input type=\"text\" name=\"idPageExcluded\" id=\"idPageExcluded\" value=\"".get_option('idPageExcluded')."\" />";
+}
+
+// Id des pages "Outils maison"
+function setting_idPageOutil() { 
+  echo "<input type=\"text\" name=\"idPageOutil\" id=\"idPageOutil\" value=\"".get_option('idPageOutil')."\" />";
+}
 
 function custom_settings_page_setup() {
-  add_settings_section('section', 'All Settings', null, 'theme-options');
-  add_settings_field('idPageDefault', 'ID page du lien "A propos / échange"', 'setting_idPageDefault', 'theme-options', 'section');
+    add_settings_section('section', 'All Settings', null, 'theme-options');
+    add_settings_field('idPageDefault', 'ID page du lien "A propos / échange"', 'setting_idPageDefault', 'theme-options', 'section');
+    add_settings_field('idPageExcluded', 'ID des pages à exclure du listing aléatoire de la homepage (séparés par une virgule)', 'setting_idPageExcluded', 'theme-options', 'section');
+    add_settings_field('idPageOutil', 'ID des pages "Outils maison" (séparés par une virgule)', 'setting_idPageOutil', 'theme-options', 'section');
 
-  register_setting('section', 'idPageDefault');
+    register_setting('section', 'idPageDefault');
+    register_setting('section', 'idPageExcluded');
+    register_setting('section', 'idPageOutil');
 }
 add_action( 'admin_init', 'custom_settings_page_setup' );
 

@@ -63,7 +63,7 @@ if (is_tax('thematique', $term)) {
                         <?php
                         if( $niveaux ): 
                             foreach( $niveaux as $niveau ): ?>
-                                <small>Niveau : <?php echo $niveau->name; ?></small>
+                                <small><?php echo $niveau->name; ?></small>
                         <?php endforeach; 
                           endif; ?>
                         </h1>

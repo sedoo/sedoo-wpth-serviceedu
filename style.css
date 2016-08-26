@@ -44,6 +44,11 @@ h1 {
     margin: 0.67em 0;
 }
 
+h1 a {
+    color:#333;
+    text-decoration: none;
+}
+
 h2 {
     font-size: 1.6em;
     margin: 1em 0;
@@ -311,7 +316,7 @@ h1 small {
 }
 
 .wrapper-container {
-    max-width: 1024px;
+    max-width: 968px;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -663,22 +668,49 @@ main {
     width: 100%;
 }
 
-.homepage > section > article > section,
+.homepage section h2 {
+    padding:20px;
+    background: #333;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+.twoColumns {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.twoColumns > h2 {
+    width: 100%;
+}
+
+.twoColumns > article {
+    flex: 1 1 300px;
+}
+
+.homepage > div > section > article > section,
 .homepage > aside > section {
     padding:0 20px;
 }
 
-.homepage > section > article {
+.homepage > div > section > article {
     padding-bottom: 20px;
 }
 
-.homepage > section > article:not(:last-child) {
+.homepage > div > section > article[class$="Border"] {
     margin-top: 0;
-    border-bottom: 1px solid #CCC;
+    border-style: solid;
+    border-top-width: 10px;
+    border-bottom: 1px solid #EEE;
+    border-left: 1px solid #EEE;
+    border-right: 1px solid #EEE;
 }
 
 @media (min-width:768px) {
-    .homepage > section {
+    .homepage > div {
         max-width: 62.6667%;
         margin-right: 4%;
     }
@@ -696,11 +728,25 @@ main {
     margin-bottom: 40px;
 } 
 
+/*
 .homepage > aside h2 {
     padding-bottom: 20px;
     border-bottom:1px solid #CCC;
     text-transform: uppercase;
     
+}
+*/
+
+
+/*
+nav[role="termsList"] {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+*/
+nav[role="termsList"] a{
+    display: block;
 }
 
 
@@ -1126,17 +1172,27 @@ input[id^="filter-format"]:checked ~ nav [for^="filter-format"]:hover {
 ------------*/
 
 .tag {
-    background: #333;
-    color: white;
+/*    background: #333;*/
+    color: #333;
     border-radius: 5px;
     padding: 5px 10px;
     display: inline-block;
     margin-bottom: 10px;
 }
 
+.full aside .tag {
+    background: #333;
+    color: #FFF;
+}
+.full aside .tag:hover {
+    background: #666;
+    color: #FFF;
+}
+
 a.tag:hover {
     text-decoration: none;
-    background: #666;
+    background: #333;
+    color: #FFF;
 }
 
 a[class*="th"]:hover {

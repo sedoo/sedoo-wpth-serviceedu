@@ -15,7 +15,7 @@ function taxonomies_list($taxonomy_name) {
     if  ($terms) {    
         // concatenation de la liste dans $termsList pour préparer le code html généré 
       foreach ($terms  as $term ) {
-        $termsList.='<a href="'.site_url().'/typeressource/'.$term->slug.'" class="tag">
+        $termsList.='<a href="'.site_url().'/'.$taxonomy_name.'/'.$term->slug.'" class="tag">
                        <span class="icon-'.$term->slug.'"></span> '.$term->name.'</a> ';
         }
         
