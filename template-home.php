@@ -19,7 +19,6 @@ get_header();
 					<h1>Homepage</h1>
 				</header>
 -->
-        
         <?php
 //        endif;
         ?>
@@ -33,8 +32,6 @@ get_header();
 
             <?php
                 endwhile;
-
-                
 
             else :
 
@@ -80,7 +77,7 @@ get_header();
                 ?>
             </section>
             <section class="twoColumns">
-                <h2>Liste aléatoire de ressources</h2>
+                <h2>6 ressources au hazard...</h2>
               <?php
                 /*******  WP_QUERY
                 * Liste de pages au hazard, avec exclusion des pages d'information (custom settings dans Menu admin)
@@ -95,8 +92,8 @@ get_header();
                 $argsListPages = array (
                     'post_type'             => array( 'page' ),
                     'post_status'           => array( 'publish' ),
-                    'orderby'               => 'rand',
-                    'posts_per_page'        => 8,
+                    'orderby'               => 'rand',   
+                    'posts_per_page'        => 6,
                     'post__not_in'          => $exclude_idsListPages
                 );
                 
@@ -104,25 +101,32 @@ get_header();
                 ?>
             </section>
             
-            <section>
-                <h2>test</h2>
-
-           </section>
-            
         </div>
         <aside>
             <section>
                <h2 class="typeRessouces">Types de ressources</h2>
                <?php
               // Appel du module de listing des terms pour la taxonomie nommée
-                taxonomies_list(typeressource);
+                $argsTerms = array(
+                    'taxonomy'  => 'typeressource',
+                    'order'    => 'ASC',
+                    'hide_empty' => 0
+                );
+                taxonomies_list(typeressource, $argsTerms);
                 ?>
                 <h2 class="niveaux">Niveaux</h2>
                <?php
               // Appel du module de listing des terms pour la taxonomie nommée
-                taxonomies_list(niveau);
+                //taxonomies_list(niveau);
+                
+                $argsTerms = array(
+                        'taxonomy'   => 'niveau',
+                        'orderby'    => 'name',
+                        'order'      => 'DESC',
+                        'hide_empty' => 0
+                    );
+                taxonomies_list(niveau, $argsTerms);
                 ?>
-               
             </section>
             <section>
                <h2>Informations</h2>

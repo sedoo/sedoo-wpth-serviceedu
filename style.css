@@ -709,6 +709,18 @@ main {
     border-right: 1px solid #EEE;
 }
 
+.homepage article > header > [role="metaTags"] > * {
+    width: 100%;
+    text-align: left;
+    margin:0;
+}
+
+.homepage article > header > [role="metaTags"] > *:nth-child(2) > * {
+    font-size: 1em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
 @media (min-width:768px) {
     .homepage > div {
         max-width: 62.6667%;
@@ -1097,7 +1109,20 @@ article > footer {
     width: 48px;
 }
 
-.embed > nav {
+.embed > nav[role="termsList"] {
+    width: 100%;
+}
+
+.embed > nav[role="termsList"] a {
+    display: inline-block;
+}
+
+.embed > div {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.embed > div > nav {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
@@ -1106,24 +1131,31 @@ article > footer {
     margin-bottom: 20px;
 }
 
-.embed > [type="radio"] {
+.embed > div > [type="radio"] {
     display: none;
 }
 
-.embed > article {
-    display: none;
+
+
+.embed > div > article {
+/*    display: block;*/
+    flex-grow:1;
+    flex-shrink: 0;
+    flex-basis: 300px;
     margin: 20px;
     border: 1px solid #CCC;
     transition: all .4s ease;
 }
 
-.embed > article > header > p {
+.embed > div > article > header > p {
 /*    background: #555;*/
     color: #888;
     font-size: 1.2em;
 }
 
-
+.embed > div > .loader {
+    width: 100%;
+}
 /*** FILTRE FORMATS
 --------------------------------*/
 input[id="filter-format-all"]:checked ~ nav [for^="filter-format"],
@@ -1319,7 +1351,7 @@ a[class*="th"]:hover {
     }
 
     
-    .embed > article {
+    .embed > div > article {
         margin: 15px;
     }
 }

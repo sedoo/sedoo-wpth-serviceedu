@@ -19,34 +19,117 @@ $thematiques=array(
     "planeto" => "Planétologie"
 );
 
+$nameTyperessources=array(
+    "activite" => "Activités",
+    "metier" => "Fiche métiers",
+    "fichepedagogique" => "Fiches pédagogiques",
+    "outils" => "Outils pédagogiques",
+    "video" => "Vidéos"
+);
+
 if (is_tax('thematique', $term)) {
   $title = $thematiques[$term];
+ }
+if (is_tax('typeressource', $term)) {
+  $title = $nameTyperessources[$term];
+ }
+if (is_tax('niveau', $term)) {
+  $title = "".$term."";
  }
 ?>
 
 <div class="wrapper-container">
-  <main id="main" class="embed" role="main">
+  <main id="main" class="embed" role="main">  
     <h1 class="<?php echo "$term"; ?>Border <?php echo "$term"; ?>Txt">
-           <svg class="">
-              <use xlink:href="#<?php echo "$term"; ?>"/>
-            </svg>
-            <span><?php echo "$title";?></span>
-        </h1>
-     
-       <?php
-      // Appel du module de filtrage taxonomie
-        taxonomies_filter(typeressource);
+     <?php
+         if (is_tax('thematique', $term)) {
+          $title = $thematiques[$term];
         ?>
 
-		<?php
-		if ( have_posts() ) : ?>
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+       <svg class="">
+          <use xlink:href="#<?php echo "$term"; ?>"/>
+        </svg>
+        <span><?php echo "$title";?></span>
+        <?php
+        }else{
+             echo "$title";
+         }
+    ?>
+    </h1>
+    <?php
+  // Appel du module de listing des terms pour la taxonomie nommée
+      
+  if (is_tax('thematique', $term)) {
+      $argsTerms = array(
+                'taxonomy'  => 'typeressource',
+                'order'    => 'ASC',
+                'hide_empty' => 0
+            );
+    taxonomies_secondFilter_list(typeressource, $argsTerms);
+  }
+  if (is_tax('typeressource', $term)) {
+    $argsTerms = array(
+                'taxonomy'  => 'thematique',
+                'order'    => 'ASC',
+                'hide_empty' => 0
+            );
+    taxonomies_secondFilter_list(thematique, $argsTerms);
+  }
+  if (is_tax('niveau', $term)) {
+    $argsTerms = array(
+                'taxonomy'  => 'thematique',
+                'order'    => 'ASC',
+                'hide_empty' => 0
+            );
+    taxonomies_secondFilter_list(thematique, $argsTerms);
+ }      
+    
+    ?>
+    <div id="i-scroll">
+
+    <?php
+
+    // Requete différente si le 2eme niveau de filtre est chargé
+    if ($_GET['second_filter']) {
+        // WP_Query arguments
+
+        // exclusions
+        // recup options de "Custom Settings" dans backoffice
+        $exclude_idsListPages=explode(",", get_option('idPageExcluded'));
+
+        $argsListPages = array (
+            'post_type'             => array( 'page' ),
+            'post_status'           => array( 'publish' ),
+            'orderby'               => 'ASC',   
+            'posts_per_page'        => 6,
+            'post__not_in'          => $exclude_idsListPages,
+            'tax_query' => array(
+                                'relation' => 'AND',
+                                array(
+                                    'taxonomy' => get_query_var( 'taxonomy' ),
+                                    'field'    => 'slug',
+                                    'terms'    => $term ,
+                                ),
+                                array(
+                                    'taxonomy' => $_GET['taxonomy_name'],
+                                    'field'    => 'slug',
+                                    'terms'    => $_GET['term'],
+                                ),
+                            ),
+        );
+
+        list_pages($argsListPages);
+    }
+    else {
+        
+        if ( have_posts() ) : ?>
+            <?php
+            /* Start the Loop */
+            while ( have_posts() ) : the_post();
 
                 $typeressources = get_the_terms( $post->ID, 'typeressource'); 
                 $niveaux = get_the_terms( $post->ID, 'niveau');
-      
+
                 if( $typeressources ): 
                     $dataFormat="";
                     $output_typeressource="";
@@ -56,7 +139,7 @@ if (is_tax('thematique', $term)) {
                     endforeach; 
                 endif; 
             ?>
-				<article data-format="<?php echo $dataFormat;?>">
+                <article data-format="<?php echo $dataFormat;?>">
                     <header>
                         <?php echo $output_typeressource;?>
                         <h1><?php the_title();?>
@@ -71,24 +154,37 @@ if (is_tax('thematique', $term)) {
 
                     </header>
                     <section>
-                       <p><?php the_excerpt(); ?></p>
+                       <?php the_excerpt(); ?>
                         <a href="<?php the_permalink(); ?>" class="tag"><span class="icon-angle-right"></span> Lire la suite</a>
                     </section>
 
                 </article>
 
-		<?php	endwhile;
+        <?php	
+            endwhile;
+        ?>
+            <figure style="display:none" class="loader">
+                <img src="<?php bloginfo('template_directory');?>/images/loader.gif" alt="">
+            </figure>
 
-			the_posts_navigation();
+        </div>    
+        <?php
+        the_posts_navigation(array(
+                'prev_text' => __( 'Page précédente', 'textdomain' ),
+                'next_text' => __( 'Page suivante', 'textdomain' ),
+                'screen_reader_text' => 'Plus de fiches'
+            ));
 
-		else :
+        else :
 
-			get_template_part( 'template-parts/content', 'none' );
+            get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+        endif; 
+      
+    }?>
 
-		</main>
-	</div>
+    </main>
+</div>
 
 
 

@@ -8,10 +8,11 @@
 * HELPERS
 *
 * fonctions utiles :
-* get_depth() -> donne le niveau de profondeur hiérarchique d'une page
+* get_depth() -> renvoie le niveau de profondeur hiérarchique d'une page
+* current_page_url() -> renvoie l'url de la page courante
 *
 */
-//include 'custom-helpers.php';
+include 'custom-helpers.php';
 
 /******************************************************************
 * MODULES
