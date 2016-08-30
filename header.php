@@ -5,7 +5,7 @@
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
+ * OMP
  * @package portail_service_educatif
  */
 
@@ -18,6 +18,7 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -28,6 +29,6 @@
             <img src="<?php bloginfo( 'template_url' ); ?>/images/icon_service_edu.png" alt="">
             <h1>Service Educatif<span>Observatoire Midi-Pyrénées</span></h1>
         </a>
-        <a href="./a-propos/">A propos / Echanges</a>
+        <a href="<?php echo get_page_link(get_option('idPageDefault')); ?>">A propos / Echanges</a>
         <?php include('nav-top.php'); ?>
     </header>

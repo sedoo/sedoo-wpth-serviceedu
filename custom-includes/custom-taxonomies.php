@@ -77,7 +77,8 @@ register_taxonomy(
   )
 );       
 
-register_taxonomy_for_object_type( 'thematique', 'page' );  
+register_taxonomy_for_object_type( 'thematique', 'page' );
+    register_taxonomy_for_object_type( 'thematique', 'post' );  
 register_taxonomy_for_object_type( 'typeressource', 'page' );
 register_taxonomy_for_object_type( 'niveau', 'page' );
  

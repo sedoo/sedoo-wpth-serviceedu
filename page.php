@@ -22,9 +22,6 @@ $typeressources = get_the_terms( $post->ID, 'typeressource');   // recup les ter
 $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les terms de la custom taxonomy "niveau"
 ?>
 
-
-
-
 <div class="wrapper-container">
     
     <main id="main" class="full" data-theme="<?php echo $themes[0]->slug; ?>" role="main">
@@ -129,7 +126,7 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
         endwhile; // End of the loop.
         ?>
 
-
+        </article>
 
     </main><!-- #main -->
 </div><!-- #primary -->
