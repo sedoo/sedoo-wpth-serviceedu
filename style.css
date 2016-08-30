@@ -44,6 +44,11 @@ h1 {
     margin: 0.67em 0;
 }
 
+h1 a {
+    color:#333;
+    text-decoration: none;
+}
+
 h2 {
     font-size: 1.6em;
     margin: 1em 0;
@@ -311,7 +316,7 @@ h1 small {
 }
 
 .wrapper-container {
-    max-width: 1024px;
+    max-width: 968px;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -652,15 +657,114 @@ body > header h1 {
 
 main {
     margin-top: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+/*** Homepage
+----------------------------------------------------------------------------------------*/
+.homepage header {
+    width: 100%;
+}
+
+.homepage section h2 {
+    padding:20px;
+    background: #333;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+.twoColumns {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.twoColumns > h2 {
+    width: 100%;
+}
+
+.twoColumns > article {
+    flex: 1 1 300px;
+}
+
+.homepage > div > section > article > section,
+.homepage > aside > section {
+    padding:0 20px;
+}
+
+.homepage > div > section > article {
+    padding-bottom: 20px;
+}
+
+.homepage > div > section > article[class$="Border"] {
+    margin-top: 0;
+    border-style: solid;
+    border-top-width: 10px;
+    border-bottom: 1px solid #EEE;
+    border-left: 1px solid #EEE;
+    border-right: 1px solid #EEE;
+}
+
+.homepage article > header > [role="metaTags"] > * {
+    width: 100%;
+    text-align: left;
+    margin:0;
+}
+
+.homepage article > header > [role="metaTags"] > *:nth-child(2) > * {
+    font-size: 1em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+@media (min-width:768px) {
+    .homepage > div {
+        max-width: 62.6667%;
+        margin-right: 4%;
+    }
+
+    .homepage > aside {
+        width: 33.3334%;
+    }
+    .homepage > aside > section {
+    margin-bottom: 20px;
+    border-left:1px solid #CCC;
+    } 
+}
+
+.homepage > aside > section {
+    margin-bottom: 40px;
+} 
+
+/*
+.homepage > aside h2 {
+    padding-bottom: 20px;
+    border-bottom:1px solid #CCC;
+    text-transform: uppercase;
+    
+}
+*/
+
+
+/*
+nav[role="termsList"] {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+*/
+nav[role="termsList"] a{
+    display: block;
 }
 
 
 /*** Main PageInfo (sidemenu)
 ----------------------------------------------------------------------------------------*/
 main.pageInfo {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
     padding-top: 30px;
 }
 
@@ -706,14 +810,24 @@ main.pageInfo {
     display: none;
 }
 
+/*
 .pageInfo [role="sommaire"] {
-/*    margin-top: 30px;*/
-    background: #404040 none repeat scroll 0 0;
-    color: #fff;
     width: 100%;
 }
+*/
 
+.pageInfo .is-sticky [role="sommaire"] {
+    background: rgba(204,204,204,.9);
+}
 
+.pageInfo [role="sommaire"] a::before {
+    background: #555;
+}
+
+.pageInfo [role="sommaire"] a {
+    border-left: 1px solid #555;
+    color: #333;
+}
 
 @media (min-width:768px) {
     
@@ -965,12 +1079,6 @@ article > footer {
 /*** Article en liste
 --------------------------------*/
 
-main.embed {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
-
 .embed > h1 {
     width: 100%;
     min-height: 80px;
@@ -1001,7 +1109,27 @@ main.embed {
     width: 48px;
 }
 
-.embed > nav {
+.embed > nav[role="termsList"] {
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+}
+
+.embed > nav[role="termsList"] > * {
+    display: inline-block;
+}
+.embed > nav[role="termsList"] > h2 {
+    margin: 0;
+    padding:0 15px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.embed > div {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.embed > div > nav {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
@@ -1010,24 +1138,31 @@ main.embed {
     margin-bottom: 20px;
 }
 
-.embed > [type="radio"] {
+.embed > div > [type="radio"] {
     display: none;
 }
 
-.embed > article {
-    display: none;
+
+
+.embed > div > article {
+/*    display: block;*/
+    flex-grow:1;
+    flex-shrink: 0;
+    flex-basis: 300px;
     margin: 20px;
     border: 1px solid #CCC;
     transition: all .4s ease;
 }
 
-.embed > article > header > p {
+.embed > div > article > header > p {
 /*    background: #555;*/
     color: #888;
     font-size: 1.2em;
 }
 
-
+.embed > div > .loader {
+    width: 100%;
+}
 /*** FILTRE FORMATS
 --------------------------------*/
 input[id="filter-format-all"]:checked ~ nav [for^="filter-format"],
@@ -1076,21 +1211,54 @@ input[id^="filter-format"]:checked ~ nav [for^="filter-format"]:hover {
 ------------*/
 
 .tag {
-    background: #333;
-    color: white;
+/*    background: #333;*/
+    color: #333;
     border-radius: 5px;
     padding: 5px 10px;
     display: inline-block;
     margin-bottom: 10px;
+    position: relative; /*pour positionnement du badge*/
+}
+
+.full aside .tag {
+    background: #333;
+    color: #FFF;
+}
+.full aside .tag:hover {
+    background: #666;
+    color: #FFF;
 }
 
 a.tag:hover {
     text-decoration: none;
-    background: #666;
+    background: #333;
+    color: #FFF;
 }
 
 a[class*="th"]:hover {
     background: #BBB;
+}
+
+/*** BADGES 
+------------*/
+.badge {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:-10px;
+    right: -10px;
+    opacity: 0;
+    background: #CCC;
+    border-radius:50%;
+    color: #333;
+    text-align: center;
+    line-height: 20px;
+    transition: all .8s ease; 
+}
+
+.tag:hover > .badge {
+    opacity: 1;
 }
 
 /*** IFRAME 
@@ -1213,7 +1381,7 @@ a[class*="th"]:hover {
     }
 
     
-    .embed > article {
+    .embed > div > article {
         margin: 15px;
     }
 }
