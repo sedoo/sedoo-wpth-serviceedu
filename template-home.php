@@ -121,8 +121,8 @@ get_header();
                 
                 $argsTerms = array(
                         'taxonomy'   => 'niveau',
-                        'orderby'    => 'name',
-                        'order'      => 'DESC',
+                        'orderby'    => 'slug',
+                        'order'      => 'ASC',
                         'hide_empty' => 0
                     );
                 taxonomies_list(niveau, $argsTerms);
@@ -130,15 +130,8 @@ get_header();
             </section>
             <section>
                <h2>Informations</h2>
-               <?php include('side-nav.php');?>
-               <h2>Autre menu</h2>
-               <?php wp_nav_menu(array('menu_id' => 'side-menu', 
-                        'container' => 'nav', 
-                        'container_id' => 'sidebar-wrapper', 
-                        'container_class' => 'navLeft',
-                        'depth' => '1'
-                       )); 
-?>
+               <?php include('side-nav.php');?>          
+
             </section>
             
             

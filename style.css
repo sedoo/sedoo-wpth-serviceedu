@@ -1111,10 +1111,17 @@ article > footer {
 
 .embed > nav[role="termsList"] {
     width: 100%;
+    border-bottom: 1px solid #CCC;
 }
 
-.embed > nav[role="termsList"] a {
+.embed > nav[role="termsList"] > * {
     display: inline-block;
+}
+.embed > nav[role="termsList"] > h2 {
+    margin: 0;
+    padding:0 15px;
+    color: #888;
+    text-transform: uppercase;
 }
 
 .embed > div {
@@ -1210,6 +1217,7 @@ input[id^="filter-format"]:checked ~ nav [for^="filter-format"]:hover {
     padding: 5px 10px;
     display: inline-block;
     margin-bottom: 10px;
+    position: relative; /*pour positionnement du badge*/
 }
 
 .full aside .tag {
@@ -1229,6 +1237,28 @@ a.tag:hover {
 
 a[class*="th"]:hover {
     background: #BBB;
+}
+
+/*** BADGES 
+------------*/
+.badge {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:-10px;
+    right: -10px;
+    opacity: 0;
+    background: #CCC;
+    border-radius:50%;
+    color: #333;
+    text-align: center;
+    line-height: 20px;
+    transition: all .8s ease; 
+}
+
+.tag:hover > .badge {
+    opacity: 1;
 }
 
 /*** IFRAME 

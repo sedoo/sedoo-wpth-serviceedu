@@ -9,33 +9,6 @@
 
 get_header(); 
 
-$thematiques=array(
-    "aero" => "Atmosphère",
-    "astro" => "Astronomie",
-    "biosphere" => "Biosphère",
-    "ecologie" => "Ecologie",
-    "geosciences" => "Géosciences",
-    "oceano" => "Océanographie",
-    "planeto" => "Planétologie"
-);
-
-$nameTyperessources=array(
-    "activite" => "Activités",
-    "metier" => "Fiche métiers",
-    "fichepedagogique" => "Fiches pédagogiques",
-    "outils" => "Outils pédagogiques",
-    "video" => "Vidéos"
-);
-
-if (is_tax('thematique', $term)) {
-  $title = $thematiques[$term];
- }
-if (is_tax('typeressource', $term)) {
-  $title = $nameTyperessources[$term];
- }
-if (is_tax('niveau', $term)) {
-  $title = "".$term."";
- }
 ?>
 
 <div class="wrapper-container">
@@ -43,19 +16,19 @@ if (is_tax('niveau', $term)) {
     <h1 class="<?php echo "$term"; ?>Border <?php echo "$term"; ?>Txt">
      <?php
          if (is_tax('thematique', $term)) {
-          $title = $thematiques[$term];
         ?>
 
        <svg class="">
           <use xlink:href="#<?php echo "$term"; ?>"/>
         </svg>
-        <span><?php echo "$title";?></span>
+        <span><?php echo term_name($term);?></span>
         <?php
         }else{
-             echo "$title";
+             echo term_name($term);
          }
     ?>
     </h1>
+    
     <?php
   // Appel du module de listing des terms pour la taxonomie nommée
       
@@ -65,15 +38,15 @@ if (is_tax('niveau', $term)) {
                 'order'    => 'ASC',
                 'hide_empty' => 0
             );
-    taxonomies_secondFilter_list(typeressource, $argsTerms);
+    taxonomies_secondFilter_list(thematique, $term, typeressource, $argsTerms);
   }
   if (is_tax('typeressource', $term)) {
     $argsTerms = array(
                 'taxonomy'  => 'thematique',
                 'order'    => 'ASC',
-                'hide_empty' => 0
+                'hide_empty' => 1
             );
-    taxonomies_secondFilter_list(thematique, $argsTerms);
+    taxonomies_secondFilter_list(typeressource, $term, thematique, $argsTerms);
   }
   if (is_tax('niveau', $term)) {
     $argsTerms = array(
@@ -81,7 +54,7 @@ if (is_tax('niveau', $term)) {
                 'order'    => 'ASC',
                 'hide_empty' => 0
             );
-    taxonomies_secondFilter_list(thematique, $argsTerms);
+    taxonomies_secondFilter_list(niveau, $term, thematique, $argsTerms);
  }      
     
     ?>
