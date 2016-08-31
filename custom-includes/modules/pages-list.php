@@ -21,7 +21,7 @@ function list_pages($arg){
 
     // The Loop
     if ( $queryListPages->have_posts() ) {
-        while ( $queryListPages->have_posts() ) {
+        while ( $queryListPages->have_posts() ) :
             $queryListPages->the_post();
             
             $theme = get_the_terms( $post->ID, 'thematique');
@@ -69,7 +69,7 @@ function list_pages($arg){
 
         </article>
         <?php
-        }
+        endwhile;
         the_posts_navigation();
     } else {
         // no posts found
