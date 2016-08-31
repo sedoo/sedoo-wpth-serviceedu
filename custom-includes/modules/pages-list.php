@@ -33,14 +33,14 @@ function list_pages($arg){
             $typeressources = get_the_terms( $post->ID, 'typeressource'); 
             $niveaux = get_the_terms( $post->ID, 'niveau');
 
-            if( $typeressources ): 
-//                $dataFormat="";
-                $output_typeressource="";
-                foreach( $typeressources as $typeressource ): 
-//                    $dataFormat.="".$typeressource->slug." ";
-                    $output_typeressource.="<p><span class=\"icon-".$typeressource->slug."\"></span> ".$typeressource->name."</p>\n";
-                endforeach;                 
-            endif; 
+//            if( $typeressources ): 
+////                $dataFormat="";
+//                $output_typeressource="";
+//                foreach( $typeressources as $typeressource ): 
+////                    $dataFormat.="".$typeressource->slug." ";
+//                    $output_typeressource.="<p><span class=\"icon-".$typeressource->slug."\"></span> ".$typeressource->name."</p>\n";
+//                endforeach;                 
+//            endif; 
         ?>
             
         <article class="<?php echo $theme[0]->slug;?>Border">
