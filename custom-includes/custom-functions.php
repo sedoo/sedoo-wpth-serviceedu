@@ -24,7 +24,7 @@ include 'custom-helpers.php';
 */
 include 'modules/taxonomies-filter.php';
 include 'modules/taxonomies-list.php';
-//include 'modules/pages-list.php';
+include 'modules/pages-list.php';
 
 /******************************************************************
 * ZONES DE WIDGETS
