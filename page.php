@@ -20,6 +20,18 @@ get_header();
 $themes = get_the_terms( $post->ID, 'thematique');              // recup les terms de la custom taxonomy "thematique"
 $typeressources = get_the_terms( $post->ID, 'typeressource');   // recup les terms de la custom taxonomy "typeressource"
 $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les terms de la custom taxonomy "niveau"
+$motsCles = get_the_terms( $post->ID, 'motcle');                 // recup les terms de la custom taxonomy "motcle" (mots clés libres)
+
+// ajout des mots clés dans le tableau $relatedPage pour argument wp_query des documents associés
+if( $motsCles ){
+    $relatedPage=array();
+    foreach( $motsCles as $motcle ) 
+    {
+        array_push($relatedPage, $motcle->slug);
+    }
+} 
+     
+
 ?>
 
 <div class="wrapper-container">
@@ -69,35 +81,59 @@ $niveaux = get_the_terms( $post->ID, 'niveau');                 // recup les ter
             </header>
             <section>
                 <?php the_content();?>
+                <section role="related">
+                   <h3>Documents associés</h3>
+                   <?php
+                    /*******  WP_QUERY
+                    * Liste des pages associés aux mots clés libres
+                    */    
+
+                    // WP_Query arguments
+
+                    $argsRelatedListPages = array (
+                        'post_type'             => array( 'page' ),
+                        'post_status'           => array( 'publish' ),
+                        'posts_per_page'        => -1,                  //liste sans limite
+                        'post__not_in'          => array($post->ID),    //exclu le post courant
+                        'tax_query'             => array(
+                                                        array(
+                                                            'taxonomy' => 'motcle',
+                                                            'field'    => 'slug',
+                                                            'terms'    => $relatedPage,
+                                                        ),
+                                                    ),
+
+                    );
+
+                    related_list_pages($argsRelatedListPages);
+
+                ?>
             </section>
+            </section>
+            
             <div>
                 <aside>
                     
                     <nav role="sommaire">
                         <h2>Sommaire</h2>
                     </nav>
+                    <?php
+                        if( $motsCles ){
+                    ?>
                     <h2>Aller plus loin</h2>
+                    
                     <section>
                         <h3>Mots clés</h3>
-                        <a href="" class="tag"><span class="icon-tag"></span> Truc</a>
-                        <a href="" class="tag"><span class="icon-tag"></span> Machin</a>
-                        <a href="" class="tag"><span class="icon-tag"></span> Chose</a>
+                        <?php 
+                            foreach( $motsCles as $motcle ): ?>
+                            <a href="<?php echo get_term_link( $motcle ); ?>" title="Voir toutes les documents de cette catégorie" class="tag"><span class="icon-tag"></span> <?php echo $motcle->name; ?></a>
+                        <?php 
+                            endforeach; 
+                        ?>
                     </section>
-    <!--
-                    <section>
-                       <h3>Support(s)</h3>
-                        <a href="" class="tag"><span class="icon-tag"></span> Document</a>
-                        <a href="" class="tag"><span class="icon-tag"></span> Video</a>
-                        <a href="" class="tag"><span class="icon-tag"></span> Article</a>
-                    </section>
-    -->
-                    <section>
-                        <h3>Documents associés</h3>
-                        <a href="#" class="tag"><span class="icon-fiche"></span> Fiche machin</a>
-                        <a href="#" class="tag"><span class="icon-activite"></span> Activité machin</a>
-                        <a href="#" class="tag"><span class="icon-activite"></span> Activité machin 2</a>
-                        <a href="#" class="tag"><span class="icon-picture"></span> Diaporama truc</a>
-                    </section>
+                    <?php
+                        } 
+                    ?>                    
                 </aside>
             </div>
             <footer>

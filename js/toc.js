@@ -19,6 +19,10 @@ $(document).ready(function(){
         $(item).appendTo('[role="sommaire"]');
         i++;
 	});
+    
+    if (i == 0) {
+        $('[role="sommaire"]').css("display", "none");
+    }
 
     $('[href^="#toc"]').click(function(){
        $('[href^="#toc"]').removeClass();

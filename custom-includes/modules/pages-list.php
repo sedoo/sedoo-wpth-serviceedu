@@ -64,4 +64,47 @@ function list_pages($arg){
     wp_reset_postdata();
 }
 
+function related_list_pages($arg){
+
+// The Query
+    $queryRelatedListPages = new WP_Query( $arg );
+
+    // The Loop
+    if ( $queryRelatedListPages->have_posts() ) {
+        while ( $queryRelatedListPages->have_posts() ) :
+            $queryRelatedListPages->the_post();
+            
+            $theme = get_the_terms( $post->ID, 'thematique');
+            
+            $typeressources = get_the_terms( $post->ID, 'typeressource'); 
+            $niveaux = get_the_terms( $post->ID, 'niveau');
+            
+            if( $typeressources ):
+                $output_typeressource="";
+                $output_typeressourceNames="";
+                foreach( $typeressources as $typeressource ):
+                    $output_typeressource.="<span class=\"icon-".$typeressource->slug."\"></span> ";
+                    $output_typeressourceNames.="".$typeressource->name." / ";
+                endforeach;                 
+            endif; 
+
+            ?>
+              <a href="<?php the_permalink(); ?>" class="tag" title="<?php echo $output_typeressourceNames;?><?php the_title();?>">
+                  <?php echo $output_typeressource;?>
+                    <br>
+                  <?php the_title();?> 
+              </a>   
+            
+        
+        <?php
+        endwhile;
+    } else {
+        // no posts found
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+}
+
+
 ?>

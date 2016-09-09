@@ -77,10 +77,34 @@ register_taxonomy(
   )
 );       
 
+// Mots clés libres 
+register_taxonomy(
+  'motcle',
+  'page',
+  array(
+    'label' => 'Mots clés libres',
+    'labels' => array(
+        'name' => 'Mots clés libres',
+        'singular_name' => 'Mot clé',
+        'all_items' => 'Toutes les mots clés',
+        'edit_item' => 'Éditer le mot clé',
+        'view_item' => 'Voir le mot clé',
+        'update_item' => 'Mettre à jour le mot clé',
+        'add_new_item' => 'Ajouter un mot clé',
+        'new_item_name' => 'Nouveau mot clé',
+        'search_items' => 'Rechercher parmi les mots clés',
+        'popular_items' => 'Mots clés les plus utilisées'
+      ),
+    'hierarchical' => true,
+    'show_ui'   => true
+  )
+);       
+    
 register_taxonomy_for_object_type( 'thematique', 'page' );
-    register_taxonomy_for_object_type( 'thematique', 'post' );  
+register_taxonomy_for_object_type( 'thematique', 'post' );  
 register_taxonomy_for_object_type( 'typeressource', 'page' );
 register_taxonomy_for_object_type( 'niveau', 'page' );
+register_taxonomy_for_object_type( 'motcle', 'page' );
  
 }  // end my_custom_taxonomies()
 
