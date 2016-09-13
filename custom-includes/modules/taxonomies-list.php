@@ -1,6 +1,6 @@
 <?php
 /******************************************************************
-* Creation de la liste des terms d'une taxonomie nommée 
+* Récup du nom au pluriel d'un term 
 */
 
 function term_name($term) {
@@ -18,9 +18,9 @@ $thematiques=array(
 $nameTyperessources=array(
     "activite" => "Activités",
     "metier" => "Fiches métiers",
-    "fichepedagogique" => "Fiches pédagogiques",
+    "fichedocumentaire" => "Fiches documentaires",
     "outils" => "Outils pédagogiques",
-    "video" => "Vidéos",
+    "media" => "Médias",
 );
     
 $nameNiveaux=array(
@@ -39,9 +39,17 @@ if (is_tax('typeressource', $term)) {
 if (is_tax('niveau', $term)) {
   $title = $nameNiveaux[$term];
  }
-
+if (is_tax('motcle', $term)) {
+  $globalTerm = get_term_by('slug', $term, 'motcle');
+  $title = $globalTerm->name;
+ }
     return $title;
 }
+
+
+/******************************************************************
+* Creation de la liste des terms d'une taxonomie nommée 
+*/
 
 function taxonomies_list($taxonomy_name, $argsTerms) {
         

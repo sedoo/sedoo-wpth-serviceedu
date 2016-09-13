@@ -55,7 +55,15 @@ get_header();
                 'hide_empty' => 0
             );
     taxonomies_secondFilter_list(niveau, $term, thematique, $argsTerms);
- }      
+ }        
+ if (is_tax('motcle', $term)) {
+    $argsTerms = array(
+                'taxonomy'  => 'typeressource',
+                'order'    => 'ASC',
+                'hide_empty' => 0
+            );
+    taxonomies_secondFilter_list(motcle, $term, typeressource, $argsTerms);
+ } 
     
     ?>
     <div id="i-scroll">
@@ -163,4 +171,5 @@ get_header();
 
 <?php
 //get_sidebar();
-get_footer();?>
+get_footer();
+?>

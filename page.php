@@ -31,7 +31,6 @@ if( $motsCles ){
     }
 } 
      
-
 ?>
 
 <div class="wrapper-container">
@@ -123,7 +122,7 @@ if( $motsCles ){
                     <h2>Aller plus loin</h2>
                     
                     <section>
-                        <h3>Mots clés</h3>
+                        <h3>Thématiques transversales</h3>
                         <?php 
                             foreach( $motsCles as $motcle ): ?>
                             <a href="<?php echo get_term_link( $motcle ); ?>" title="Voir toutes les documents de cette catégorie" class="tag"><span class="icon-tag"></span> <?php echo $motcle->name; ?></a>

@@ -999,6 +999,7 @@ article > footer {
 
 [role="metaTags"] > :first-child > a {
     display: table;
+    margin-bottom: 10px;
     font-weight: bold;
     font-size: 1.2em;
     color:#999;
@@ -1016,7 +1017,7 @@ article > footer {
 }
 
 [role="metaTags"] > :nth-child(2) > * {
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-transform: uppercase;
     margin: 0;    
 }
@@ -1178,9 +1179,9 @@ article > footer {
 /*** FILTRE FORMATS
 --------------------------------*/
 input[id="filter-format-all"]:checked ~ nav [for^="filter-format"],
-input[id="filter-format-fichepedagogique"]:checked ~ nav [for="filter-format-fichepedagogique"],
+input[id="filter-format-fichedocumentaire"]:checked ~ nav [for="filter-format-fichedocumentaire"],
 input[id="filter-format-activite"]:checked ~ nav [for="filter-format-activite"],
-input[id="filter-format-video"]:checked ~ nav [for="filter-format-video"],
+input[id="filter-format-media"]:checked ~ nav [for="filter-format-media"],
 input[id="filter-format-outils"]:checked ~ nav [for="filter-format-outils"],
 input[id="filter-format-metier"]:checked ~ nav [for="filter-format-metier"] 
 {
@@ -1188,9 +1189,9 @@ input[id="filter-format-metier"]:checked ~ nav [for="filter-format-metier"]
 }
 
 input[id="filter-format-all"]:checked ~ [data-format],
-input[id="filter-format-fichepedagogique"]:checked ~ [data-format*="fichepedagogique"],
+input[id="filter-format-fichedocumentaire"]:checked ~ [data-format*="fichedocumentaire"],
 input[id="filter-format-activite"]:checked ~ [data-format*="activite"],
-input[id="filter-format-video"]:checked ~ [data-format*="video"],
+input[id="filter-format-media"]:checked ~ [data-format*="media"],
 input[id="filter-format-outils"]:checked ~ [data-format*="outils"],
 input[id="filter-format-metier"]:checked ~ [data-format*="metier"]
 {

@@ -4,7 +4,6 @@ Template Name: Homepage
 */
 get_header(); 
 
-
 ?>
 
 <div class="wrapper-container">
