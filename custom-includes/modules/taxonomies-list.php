@@ -115,8 +115,18 @@ function taxonomies_secondFilter_list($masterTaxonomyName, $masterTermSlug, $tax
           
             // si résultat, on affiche le term avec le nbre de post associé
             if ($count > 0) {
-                $termsList.='<a href="'.$url.'" class="tag">
+                if (has_term($term->slug, 'thematique')) {
+                    $termsList.='<a href="'.$url.'" class="tag">
+                        <svg class="">
+                          <use xlink:href="#'.$term->slug.'"/>
+                        </svg>
+                        <span>'.$term->name.'</span>
+                         <span class="badge">'.$count.'</span></a>';                
+                }else{
+                     $termsList.='<a href="'.$url.'" class="tag">
                        <span class="icon-'.$term->slug.'"></span> '.$term->name.' <span class="badge">'.$count.'</span></a> ';
+                 }
+                
             }
           
         

@@ -450,7 +450,8 @@ h1 small {
 
 /* BORDER COLOR */
 
-.aeroBorder,
+.aeroBorder
+{border-top-color: #90BCD1;}
 [data-theme="aero"] blockquote
 {border-color: #90BCD1;}
 
@@ -650,6 +651,15 @@ body > header h1 {
     margin:0 auto;
     text-align: center;
 }
+
+[role="termsList"] a > svg {
+    height: 40px;
+    width: 42px;
+    margin:0 auto;
+    text-align: center;
+    transform: scale(.8);
+}
+
 [role="top-menu"] a:hover > span {
     border-bottom: 1px solid #333;;
 }
@@ -907,7 +917,7 @@ article > header {
 article > header > p {
     margin-bottom: 0;
     text-transform: uppercase;
-    font-size: 1.1em;
+/*    font-size: 1.1em;*/
 }
 
 article > header > figure {
@@ -1155,22 +1165,26 @@ article > footer {
     display: none;
 }
 
-
-
 .embed > div > article {
-/*    display: block;*/
     flex-grow:1;
     flex-shrink: 0;
     flex-basis: 300px;
     margin: 20px;
-    border: 1px solid #CCC;
+    border-style: solid;
+    border-width: 10px 1px 1px;
+    border-bottom-color:#CCC;
+    border-left-color:#CCC;
+    border-right-color:#CCC;
     transition: all .4s ease;
 }
 
+.embed > div > article:not([class*=Border]) {
+    border-top-color:#CCC;
+}
+
 .embed > div > article > header > p {
-/*    background: #555;*/
     color: #888;
-    font-size: 1.2em;
+/*    font-size: 1.2em;*/
 }
 
 .embed > div > .loader {

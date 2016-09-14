@@ -103,64 +103,22 @@ get_header();
     }
     else {
         
-        if ( have_posts() ) : ?>
-            <?php
-            /* Start the Loop */
-            while ( have_posts() ) : the_post();
+        $argsListPages = array (
+            'post_type'             => array( 'page' ),
+            'post_status'           => array( 'publish' ),
+            'orderby'               => 'ASC',   
+            'posts_per_page'        => 6,
+            'post__not_in'          => $exclude_idsListPages,
+            'tax_query' => array(
+                                array(
+                                    'taxonomy' => get_query_var( 'taxonomy' ),
+                                    'field'    => 'slug',
+                                    'terms'    => $term ,
+                                )
+                            ),
+        );
 
-                $typeressources = get_the_terms( $post->ID, 'typeressource'); 
-                $niveaux = get_the_terms( $post->ID, 'niveau');
-
-                if( $typeressources ): 
-                    $dataFormat="";
-                    $output_typeressource="";
-                    foreach( $typeressources as $typeressource ): 
-                        $dataFormat.="".$typeressource->slug." ";
-                        $output_typeressource.="<p><span class=\"icon-".$typeressource->slug."\"></span> ".$typeressource->name."</p>\n";
-                    endforeach; 
-                endif; 
-            ?>
-                <article data-format="<?php echo $dataFormat;?>">
-                    <header>
-                        <?php echo $output_typeressource;?>
-                        <h1><?php the_title();?>
-                        <?php
-                        if( $niveaux ): 
-                            foreach( $niveaux as $niveau ): ?>
-                                <small><?php echo $niveau->name; ?></small>
-                        <?php endforeach; 
-                          endif; ?>
-                        </h1>
-                        <figure><?php the_post_thumbnail( 'illustration-article' ); ?></figure>
-
-                    </header>
-                    <section>
-                       <?php the_excerpt(); ?>
-                        <a href="<?php the_permalink(); ?>" class="tag"><span class="icon-angle-right"></span> Lire la suite</a>
-                    </section>
-
-                </article>
-
-        <?php	
-            endwhile;
-        ?>
-            <figure style="display:none" class="loader">
-                <img src="<?php bloginfo('template_directory');?>/images/loader.gif" alt="">
-            </figure>
-
-        </div>    
-        <?php
-        the_posts_navigation(array(
-                'prev_text' => __( 'Page précédente', 'textdomain' ),
-                'next_text' => __( 'Page suivante', 'textdomain' ),
-                'screen_reader_text' => 'Plus de fiches'
-            ));
-
-        else :
-
-            get_template_part( 'template-parts/content', 'none' );
-
-        endif; 
+        list_pages($argsListPages);        
       
     }?>
 

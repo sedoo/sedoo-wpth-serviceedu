@@ -1,4 +1,13 @@
 <?php
+
+/******************************************************************
+* Template des pages embed
+*/
+
+function show_pages(){
+    
+}
+
 /******************************************************************
 * Creation de liste des pages en fonction d'arguments passés à WP_Query()
 */
@@ -13,13 +22,12 @@ function list_pages($arg){
         while ( $queryListPages->have_posts() ) :
             $queryListPages->the_post();
             
-            $theme = get_the_terms( $post->ID, 'thematique');
-            
+            $themes = get_the_terms( $post->ID, 'thematique');            
             $typeressources = get_the_terms( $post->ID, 'typeressource'); 
             $niveaux = get_the_terms( $post->ID, 'niveau');
 
             if( $typeressources ): 
-//                $dataFormat="";
+              $dataFormat="".$themes[0]->slug."";
                 $output_typeressource="";
                 foreach( $typeressources as $typeressource ): 
 //                    $dataFormat.="".$typeressource->slug." ";
@@ -28,11 +36,9 @@ function list_pages($arg){
             endif; 
         ?>
             
-        <article class="<?php echo $theme[0]->slug;?>Border">
+        <article class="<?php echo $dataFormat;?>Border">
             <header>
-                <section role="metaTags">
                 <?php echo $output_typeressource;?>
-                </section>
                 <h1>
                    <a href="<?php the_permalink(); ?>">
                     <?php the_title();?>
@@ -55,9 +61,13 @@ function list_pages($arg){
         </article>
         <?php
         endwhile;
-        the_posts_navigation();
+        the_posts_navigation(array(
+                'prev_text' => __( 'Page précédente', 'textdomain' ),
+                'next_text' => __( 'Page suivante', 'textdomain' ),
+                'screen_reader_text' => 'Plus de fiches'
+            ));
     } else {
-        // no posts found
+        get_template_part( 'template-parts/content', 'none' );
     }
 
     // Restore original Post Data
