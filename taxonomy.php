@@ -66,7 +66,7 @@ get_header();
  } 
     
     ?>
-    <div id="i-scroll">
+<!--    <div id="i-scroll">-->
 
     <?php
 
@@ -83,6 +83,7 @@ get_header();
             'post_status'           => array( 'publish' ),
             'orderby'               => 'ASC',   
             'posts_per_page'        => 6,
+            'paged'                 => get_query_var( 'paged' ),
             'post__not_in'          => $exclude_idsListPages,
             'tax_query' => array(
                                 'relation' => 'AND',
@@ -108,6 +109,7 @@ get_header();
             'post_status'           => array( 'publish' ),
             'orderby'               => 'ASC',   
             'posts_per_page'        => 6,
+            'paged'                 => get_query_var( 'paged' ),
             'post__not_in'          => $exclude_idsListPages,
             'tax_query' => array(
                                 array(
@@ -118,10 +120,10 @@ get_header();
                             ),
         );
 
-        list_pages($argsListPages);        
-      
-    }?>
+        list_pages($argsListPages);    
 
+    }?>
+        
     </main>
 </div>
 

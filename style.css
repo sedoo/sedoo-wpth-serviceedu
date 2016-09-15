@@ -337,12 +337,6 @@ h1 small {
     transform: scale(0.45);
 }
 
-
-/*g[id]{
-    -webkit-transform: translate(2px, 8px) scale(0.5);
-            transform: translate(2px, 8px) scale(0.5);
-}*/
-
 [id="aero"] {
     fill: #90BCD1;
 }
@@ -652,14 +646,6 @@ body > header h1 {
     text-align: center;
 }
 
-[role="termsList"] a > svg {
-    height: 40px;
-    width: 42px;
-    margin:0 auto;
-    text-align: center;
-    transform: scale(.8);
-}
-
 [role="top-menu"] a:hover > span {
     border-bottom: 1px solid #333;;
 }
@@ -713,19 +699,6 @@ main {
     padding:0 20px;
 }
 
-.homepage > div > section > article {
-    padding-bottom: 20px;
-}
-
-.homepage > div > section > article[class$="Border"] {
-    margin-top: 0;
-    border-style: solid;
-    border-top-width: 10px;
-    border-bottom: 1px solid #EEE;
-    border-left: 1px solid #EEE;
-    border-right: 1px solid #EEE;
-}
-
 .homepage article > header > [role="metaTags"] > * {
     width: 100%;
     text-align: left;
@@ -736,6 +709,10 @@ main {
     font-size: 1em;
     margin: 0;
     text-transform: uppercase;
+}
+
+.homepage nav[role="termsList"] a{
+    display: block;
 }
 
 @media (min-width:768px) {
@@ -756,28 +733,6 @@ main {
 .homepage > aside > section {
     margin-bottom: 40px;
 } 
-
-/*
-.homepage > aside h2 {
-    padding-bottom: 20px;
-    border-bottom:1px solid #CCC;
-    text-transform: uppercase;
-    
-}
-*/
-
-
-/*
-nav[role="termsList"] {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-}
-*/
-nav[role="termsList"] a{
-    display: block;
-}
-
 
 /*** Main PageInfo (sidemenu)
 ----------------------------------------------------------------------------------------*/
@@ -906,7 +861,7 @@ article {
     margin-top: 40px;
     display: flex;
     flex-flow: row wrap;
-/*    align-items: center;*/
+    align-content: flex-start;
     
 }
 
@@ -929,6 +884,38 @@ article > header > h1 {
     padding: 20px;
     font-size: 1.5em;
     text-transform: uppercase;
+}
+
+div article {
+    padding-bottom: 20px;
+    margin-top: 0;
+    border: 1px solid #EEE;
+}
+article > div {
+    flex: 1 1 50px;
+    height: 32px;
+/*    width: 100%;*/
+    padding-top: 2px;
+    text-align: center;
+}
+
+article > div > svg,
+a.tag > svg {
+    height: 30px;
+    width: 29px;
+}
+
+article > div > svg [id],
+a.tag > svg [id] {
+    transform: scale(.3);
+}
+
+article > div > svg [id] {
+    fill:#FFF;
+}
+
+.full article {
+    border:none;
 }
 
 .full article > section {
@@ -1133,18 +1120,29 @@ article > footer {
 }
 
 .embed > nav[role="termsList"] {
+    display:table;
     width: 100%;
+    padding-bottom: 15px;
     border-bottom: 1px solid #CCC;
 }
 
 .embed > nav[role="termsList"] > * {
-    display: inline-block;
+    display: table-cell;    
+    vertical-align: middle;
 }
 .embed > nav[role="termsList"] > h2 {
     margin: 0;
     padding:0 15px;
     color: #888;
     text-transform: uppercase;
+}
+
+.embed > nav[role="termsList"] a {
+    text-align: center;
+}
+
+.embed a.tag > svg + span {
+    display: block;
 }
 
 .embed > div {
@@ -1170,16 +1168,7 @@ article > footer {
     flex-shrink: 0;
     flex-basis: 300px;
     margin: 20px;
-    border-style: solid;
-    border-width: 10px 1px 1px;
-    border-bottom-color:#CCC;
-    border-left-color:#CCC;
-    border-right-color:#CCC;
     transition: all .4s ease;
-}
-
-.embed > div > article:not([class*=Border]) {
-    border-top-color:#CCC;
 }
 
 .embed > div > article > header > p {

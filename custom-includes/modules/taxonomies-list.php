@@ -96,6 +96,8 @@ function taxonomies_secondFilter_list($masterTaxonomyName, $masterTermSlug, $tax
           $argsListPages = array (
             'post_type'             => array( 'page' ),
             'post_status'           => array( 'publish' ),
+            'posts_per_page'        => -1,                  // 15-09
+            'nopaging'              => true,                // 15-09
             'tax_query' => array(
                                 'relation' => 'AND',
                                 array(
@@ -115,21 +117,20 @@ function taxonomies_secondFilter_list($masterTaxonomyName, $masterTermSlug, $tax
           
             // si résultat, on affiche le term avec le nbre de post associé
             if ($count > 0) {
+                $queryListPages->the_post();
+                $termsList.='<a href="'.$url.'" class="tag">';
                 if (has_term($term->slug, 'thematique')) {
-                    $termsList.='<a href="'.$url.'" class="tag">
-                        <svg class="">
+                    $termsList.='<svg class="">
                           <use xlink:href="#'.$term->slug.'"/>
                         </svg>
-                        <span>'.$term->name.'</span>
-                         <span class="badge">'.$count.'</span></a>';                
-                }else{
-                     $termsList.='<a href="'.$url.'" class="tag">
-                       <span class="icon-'.$term->slug.'"></span> '.$term->name.' <span class="badge">'.$count.'</span></a> ';
-                 }
-                
+                        <span>'.$term->name.'</span>';
+                                         
+                } else {
+                     $termsList.='<span class="icon-'.$term->slug.'"></span> '.$term->name.'';
+                }
+                $termsList.='<span class="badge">'.$count.'</span></a>';
             }
           
-        
         }
         
         ?>

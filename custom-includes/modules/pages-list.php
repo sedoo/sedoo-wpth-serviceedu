@@ -19,26 +19,40 @@ function list_pages($arg){
 
     // The Loop
     if ( $queryListPages->have_posts() ) {
+    ?>
+    <div id="i-scroll">    
+        <?php
         while ( $queryListPages->have_posts() ) :
             $queryListPages->the_post();
             
             $themes = get_the_terms( $post->ID, 'thematique');            
             $typeressources = get_the_terms( $post->ID, 'typeressource'); 
             $niveaux = get_the_terms( $post->ID, 'niveau');
+        
+            if ( $themes) {
+                $outputTheme="";
+                foreach ($themes as $theme) {
+                    $outputTheme.='<div class="'.$theme->slug.'Bg">
+                        <svg class="">
+                              <use xlink:href="#'.$theme->slug.'"/>
+                            </svg>                  
+                    </div>';
+                    // class="<?php echo $outputTheme;Border"
+                } 
+            }
 
-            if( $typeressources ): 
-              $dataFormat="".$themes[0]->slug."";
-                $output_typeressource="";
-                foreach( $typeressources as $typeressource ): 
-//                    $dataFormat.="".$typeressource->slug." ";
-                    $output_typeressource.="<p><span class=\"icon-".$typeressource->slug."\"></span> ".$typeressource->name."</p>\n";
-                endforeach;                 
-            endif; 
+            if( $typeressources ){
+                $outputTyperessource="";
+                foreach( $typeressources as $typeressource ) {
+                    $outputTyperessource.="<p><span class=\"icon-".$typeressource->slug."\"></span> ".$typeressource->name."</p>\n";
+                }              
+            } 
         ?>
-            
-        <article class="<?php echo $dataFormat;?>Border">
+       
+        <article>
+           <?php echo $outputTheme;?>
             <header>
-                <?php echo $output_typeressource;?>
+                <?php echo $outputTyperessource;?>
                 <h1>
                    <a href="<?php the_permalink(); ?>">
                     <?php the_title();?>
@@ -61,11 +75,20 @@ function list_pages($arg){
         </article>
         <?php
         endwhile;
-        the_posts_navigation(array(
+        ?>
+        
+        <figure style="display:none" class="loader">
+            <img src="<?php bloginfo('template_directory');?>/images/loader.gif" alt="">
+        </figure>
+
+    </div>
+    <?php
+      the_posts_navigation(array(
                 'prev_text' => __( 'Page précédente', 'textdomain' ),
                 'next_text' => __( 'Page suivante', 'textdomain' ),
                 'screen_reader_text' => 'Plus de fiches'
             ));
+        
     } else {
         get_template_part( 'template-parts/content', 'none' );
     }
@@ -90,17 +113,17 @@ function related_list_pages($arg){
             $niveaux = get_the_terms( $post->ID, 'niveau');
             
             if( $typeressources ):
-                $output_typeressource="";
-                $output_typeressourceNames="";
+                $outputTyperessource="";
+                $outputTyperessourceNames="";
                 foreach( $typeressources as $typeressource ):
-                    $output_typeressource.="<span class=\"icon-".$typeressource->slug."\"></span> ";
-                    $output_typeressourceNames.="".$typeressource->name." / ";
+                    $outputTyperessource.="<span class=\"icon-".$typeressource->slug."\"></span> ";
+                    $outputTyperessourceNames.="".$typeressource->name." / ";
                 endforeach;                 
             endif; 
 
             ?>
-              <a href="<?php the_permalink(); ?>" class="tag" title="<?php echo $output_typeressourceNames;?><?php the_title();?>">
-                  <?php echo $output_typeressource;?>
+              <a href="<?php the_permalink(); ?>" class="tag" title="<?php echo $outputTyperessourceNames;?><?php the_title();?>">
+                  <?php echo $outputTyperessource;?>
                     <br>
                   <?php the_title();?> 
               </a>   
