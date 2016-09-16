@@ -9,15 +9,18 @@
 * Appelle le template content-embed-page.php
 */
 
-function list_pages($arg){
+function list_pages($arg, $infiniteScroll){
 
 // The Query
     $queryListPages = new WP_Query( $arg );
 
     // The Loop
     if ( $queryListPages->have_posts() ) {
-    ?>
-    <div id="i-scroll">    
+    
+        if ($infiniteScroll) {
+        echo '<div id="i-scroll">';
+        }
+        ?>
         <?php
         while ( $queryListPages->have_posts() ) :
             $queryListPages->the_post(); 
@@ -31,8 +34,11 @@ function list_pages($arg){
         <figure style="display:none" class="loader">
             <img src="<?php bloginfo('template_directory');?>/images/loader.gif" alt="">
         </figure>
-
-    </div>
+    <?php
+    if ($infiniteScroll) {
+        echo '</div> ';
+        }
+    ?>
     <?php
       the_posts_navigation(array(
                 'prev_text' => __( 'Page précédente', 'textdomain' ),

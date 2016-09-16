@@ -51,7 +51,7 @@ get_header();
                     'order'                 => 'DESC'
                 );
                 
-                list_pages($argsListPost);
+                list_pages($argsListPost, false);
                 
                 ?>
             </section>
@@ -73,7 +73,7 @@ get_header();
                     'post__in'              => $include_idsListPagesOutil
                 );
                 
-                list_pages($argsListPagesOutil);
+                list_pages($argsListPagesOutil, false);
                 
                 ?>
             </section>
@@ -98,7 +98,7 @@ get_header();
                     'post__not_in'          => $exclude_idsListPages
                 );
                 
-                list_pages($argsListPages);
+                list_pages($argsListPages, false);
                 
                 ?>
             </section>
