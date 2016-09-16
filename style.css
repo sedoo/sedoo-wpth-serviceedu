@@ -842,7 +842,7 @@ main.pageInfo > article > header > h1 {
 body > footer {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     min-height: 100px;
     padding: 30px;
     background: #333;
@@ -857,6 +857,20 @@ body > footer > [role="tutelles"] {
 
 body > footer + svg {
     display: none;
+}
+
+body > footer > [role="tutelles"] figure {
+    text-align: center;
+    margin-right: 20px;
+}
+
+body > footer > [role="tutelles"] figcaption {
+    border: none;
+    margin: 0;
+}
+
+body > footer > [role="tutelles"] figcaption > a {
+    color:#aaa;
 }
 
 /*** Article 
@@ -1261,7 +1275,7 @@ a[class*="th"]:hover {
     width: 300px;
     position: fixed;
     left:0;
-    top:50vh;
+    top:33vh;
     z-index: 1;
     border-radius: 0 10px 10px 0;
     background:;
