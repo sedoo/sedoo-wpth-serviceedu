@@ -1,6 +1,6 @@
 <?php
 /******************************************************************
-* Creation de la liste des terms d'une taxonomie nommée 
+* Récup du nom au pluriel d'un term 
 */
 
 function term_name($term) {
@@ -18,9 +18,9 @@ $thematiques=array(
 $nameTyperessources=array(
     "activite" => "Activités",
     "metier" => "Fiches métiers",
-    "fichepedagogique" => "Fiches pédagogiques",
+    "fichedocumentaire" => "Fiches documentaires",
     "outils" => "Outils pédagogiques",
-    "video" => "Vidéos",
+    "media" => "Médias",
 );
     
 $nameNiveaux=array(
@@ -39,9 +39,17 @@ if (is_tax('typeressource', $term)) {
 if (is_tax('niveau', $term)) {
   $title = $nameNiveaux[$term];
  }
-
+if (is_tax('motcle', $term)) {
+  $globalTerm = get_term_by('slug', $term, 'motcle');
+  $title = $globalTerm->name;
+ }
     return $title;
 }
+
+
+/******************************************************************
+* Creation de la liste des terms d'une taxonomie nommée 
+*/
 
 function taxonomies_list($taxonomy_name, $argsTerms) {
         
@@ -88,6 +96,8 @@ function taxonomies_secondFilter_list($masterTaxonomyName, $masterTermSlug, $tax
           $argsListPages = array (
             'post_type'             => array( 'page' ),
             'post_status'           => array( 'publish' ),
+            'posts_per_page'        => -1,
+            'nopaging'              => true,
             'tax_query' => array(
                                 'relation' => 'AND',
                                 array(
@@ -107,11 +117,20 @@ function taxonomies_secondFilter_list($masterTaxonomyName, $masterTermSlug, $tax
           
             // si résultat, on affiche le term avec le nbre de post associé
             if ($count > 0) {
-                $termsList.='<a href="'.$url.'" class="tag">
-                       <span class="icon-'.$term->slug.'"></span> '.$term->name.' <span class="badge">'.$count.'</span></a> ';
+                $queryListPages->the_post();
+                $termsList.='<a href="'.$url.'" class="tag">';
+                if (has_term($term->slug, 'thematique')) {
+                    $termsList.='<svg class="">
+                          <use xlink:href="#'.$term->slug.'"/>
+                        </svg>
+                        <span>'.$term->name.'</span>';
+                                         
+                } else {
+                     $termsList.='<span class="icon-'.$term->slug.'"></span> '.$term->name.'';
+                }
+                $termsList.='<span class="badge">'.$count.'</span></a>';
             }
           
-        
         }
         
         ?>
