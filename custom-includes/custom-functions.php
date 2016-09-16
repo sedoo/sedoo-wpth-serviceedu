@@ -20,6 +20,7 @@ include 'custom-helpers.php';
 * taxonomies-filter : filtre css pour taxonomies
 * taxonomies-list : liste les terms d'une taxonomie
 * pages-list : liste des pages en fonction d'arguments passés à WP_Query()
+* pages-list : Liste sous forme de boutons les pages en relation (taxonomie) en fonction des arguments passés à WP_Query()
 *
 */
 include 'modules/taxonomies-filter.php';

@@ -337,12 +337,6 @@ h1 small {
     transform: scale(0.45);
 }
 
-
-/*g[id]{
-    -webkit-transform: translate(2px, 8px) scale(0.5);
-            transform: translate(2px, 8px) scale(0.5);
-}*/
-
 [id="aero"] {
     fill: #90BCD1;
 }
@@ -374,69 +368,83 @@ h1 small {
 
 /* TEXT COLOR */
 
-.aeroTxt {
+.aeroTxt,
+[data-theme="aero"] blockquote a{
     color: #90BCD1;
 }
 
-.astroTxt {
+.astroTxt,
+[data-theme="astro"] blockquote a{
     color: #2D4F59;
 }
 
-.biosphereTxt {
+.biosphereTxt,
+[data-theme="biosphere"] blockquote a{
     color: #B6CC49;
 }
 
-.ecologieTxt {
+.ecologieTxt,
+[data-theme="ecologie"] blockquote a{
     color: #7DBF3B;
 }
 
-.geosciencesTxt {
+.geosciencesTxt,
+[data-theme="geosciences"] blockquote a{
     color: #DD9946;
 }
 
-.oceanoTxt {
+.oceanoTxt,
+[data-theme="oceano"] blockquote a{
     color: #1F7E9E;
 }
 
-.planetoTxt {
+.planetoTxt,
+[data-theme="planeto"] blockquote a{
     color: #E25B3D;
 }
 
 /* BACKGROUND COLOR */
 
 .aeroBg,
-[data-theme="aero"] article aside > h2,
-[data-theme="aero"] article > header > figure
+[data-theme="aero"] aside > h2,
+[data-theme="aero"] > header > figure,
+[data-theme="aero"] [role="related"]
 {background: #90BCD1;}
 
 .astroBg,
-[data-theme="astro"] article aside > h2,
-[data-theme="astro"] article > header > figure
+[data-theme="astro"] aside > h2,
+[data-theme="astro"] > header > figure,
+[data-theme="astro"] [role="related"]
 {background: #2D4F59;}
 
 .biosphereBg,
-[data-theme="biosphere"] article aside > h2,
-[data-theme="biosphere"] article > header > figure
+[data-theme="biosphere"] aside > h2,
+[data-theme="biosphere"] > header > figure,
+[data-theme="biosphere"] [role="related"]
 {background: #B6CC49;}
 
 .ecologieBg,
-[data-theme="ecologie"] article aside > h2,
-[data-theme="ecologie"] article > header > figure
+[data-theme="ecologie"] aside > h2,
+[data-theme="ecologie"] > header > figure,
+[data-theme="ecologie"] [role="related"]
 {background: #7DBF3B;}
 
 .geosciencesBg,
-[data-theme="geosciences"] article aside > h2,
-[data-theme="geosciences"] article > header > figure 
+[data-theme="geosciences"] aside > h2,
+[data-theme="geosciences"] > header > figure,
+[data-theme="geosciences"] [role="related"]
 {background: #DD9946;}
 
 .oceanoBg,
-[data-theme="oceano"] article aside > h2,
-[data-theme="oceano"] article > header > figure 
+[data-theme="oceano"] aside > h2,
+[data-theme="oceano"] > header > figure,
+[data-theme="oceano"] [role="related"]
 {background: #1F7E9E;}
 
 .planetoBg,
-[data-theme="planeto"] article aside > h2,
-[data-theme="planeto"] article > header > figure 
+[data-theme="planeto"] aside > h2,
+[data-theme="planeto"] > header > figure,
+[data-theme="planeto"] [role="related"]
 {background: #E25B3D;}
 
 .aeroBg, .astroBg, .biosphereBg, .ecologieBg, .geosciencesBg, .oceanoBg, .planetoBg {color: white;}
@@ -643,6 +651,7 @@ body > header h1 {
     margin:0 auto;
     text-align: center;
 }
+
 [role="top-menu"] a:hover > span {
     border-bottom: 1px solid #333;;
 }
@@ -696,19 +705,6 @@ main {
     padding:0 20px;
 }
 
-.homepage > div > section > article {
-    padding-bottom: 20px;
-}
-
-.homepage > div > section > article[class$="Border"] {
-    margin-top: 0;
-    border-style: solid;
-    border-top-width: 10px;
-    border-bottom: 1px solid #EEE;
-    border-left: 1px solid #EEE;
-    border-right: 1px solid #EEE;
-}
-
 .homepage article > header > [role="metaTags"] > * {
     width: 100%;
     text-align: left;
@@ -719,6 +715,10 @@ main {
     font-size: 1em;
     margin: 0;
     text-transform: uppercase;
+}
+
+.homepage nav[role="termsList"] a{
+    display: block;
 }
 
 @media (min-width:768px) {
@@ -739,28 +739,6 @@ main {
 .homepage > aside > section {
     margin-bottom: 40px;
 } 
-
-/*
-.homepage > aside h2 {
-    padding-bottom: 20px;
-    border-bottom:1px solid #CCC;
-    text-transform: uppercase;
-    
-}
-*/
-
-
-/*
-nav[role="termsList"] {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-}
-*/
-nav[role="termsList"] a{
-    display: block;
-}
-
 
 /*** Main PageInfo (sidemenu)
 ----------------------------------------------------------------------------------------*/
@@ -864,7 +842,7 @@ main.pageInfo > article > header > h1 {
 body > footer {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     min-height: 100px;
     padding: 30px;
     background: #333;
@@ -881,6 +859,20 @@ body > footer + svg {
     display: none;
 }
 
+body > footer > [role="tutelles"] figure {
+    text-align: center;
+    margin-right: 20px;
+}
+
+body > footer > [role="tutelles"] figcaption {
+    border: none;
+    margin: 0;
+}
+
+body > footer > [role="tutelles"] figcaption > a {
+    color:#aaa;
+}
+
 /*** Article 
 --------------------------------*/
 
@@ -889,7 +881,7 @@ article {
     margin-top: 40px;
     display: flex;
     flex-flow: row wrap;
-/*    align-items: center;*/
+    align-content: flex-start;
     
 }
 
@@ -900,7 +892,7 @@ article > header {
 article > header > p {
     margin-bottom: 0;
     text-transform: uppercase;
-    font-size: 1.1em;
+/*    font-size: 1.1em;*/
 }
 
 article > header > figure {
@@ -912,6 +904,38 @@ article > header > h1 {
     padding: 20px;
     font-size: 1.5em;
     text-transform: uppercase;
+}
+
+div article {
+    padding-bottom: 20px;
+    margin-top: 0;
+    border: 1px solid #EEE;
+}
+.embed article > div {
+    flex: 1 1 50px;
+    height: 32px;
+/*    width: 100%;*/
+    padding-top: 2px;
+    text-align: center;
+}
+
+article > div > svg,
+a.tag > svg {
+    height: 30px;
+    width: 29px;
+}
+
+article > div > svg [id],
+a.tag > svg [id] {
+    transform: scale(.3);
+}
+
+article > div > svg [id] {
+    fill:#FFF;
+}
+
+.full article {
+    border:none;
 }
 
 .full article > section {
@@ -967,6 +991,11 @@ article > footer {
 }
 
 
+[role="related"] {
+    color:#FFF;
+    padding:20px;
+}
+
 /* META TAGS 
 --------------------------------*/
 
@@ -987,6 +1016,7 @@ article > footer {
 
 [role="metaTags"] > :first-child > a {
     display: table;
+    margin-bottom: 10px;
     font-weight: bold;
     font-size: 1.2em;
     color:#999;
@@ -1004,7 +1034,7 @@ article > footer {
 }
 
 [role="metaTags"] > :nth-child(2) > * {
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-transform: uppercase;
     margin: 0;    
 }
@@ -1090,14 +1120,6 @@ article > footer {
     text-transform: uppercase;
 }
 
-/*
-.embed > h1 {
-    display: table;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-*/
-
 .embed > h1 > * {
     display: inline-block;
     vertical-align: middle;
@@ -1110,18 +1132,30 @@ article > footer {
 }
 
 .embed > nav[role="termsList"] {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
     width: 100%;
+    padding-bottom: 15px;
     border-bottom: 1px solid #CCC;
 }
 
 .embed > nav[role="termsList"] > * {
-    display: inline-block;
+    align-self: center;
 }
 .embed > nav[role="termsList"] > h2 {
     margin: 0;
     padding:0 15px;
     color: #888;
     text-transform: uppercase;
+}
+
+.embed > nav[role="termsList"] a {
+    text-align: center;
+}
+
+.embed a.tag > svg + span {
+    display: block;
 }
 
 .embed > div {
@@ -1142,22 +1176,17 @@ article > footer {
     display: none;
 }
 
-
-
 .embed > div > article {
-/*    display: block;*/
     flex-grow:1;
     flex-shrink: 0;
     flex-basis: 300px;
     margin: 20px;
-    border: 1px solid #CCC;
     transition: all .4s ease;
 }
 
 .embed > div > article > header > p {
-/*    background: #555;*/
     color: #888;
-    font-size: 1.2em;
+/*    font-size: 1.2em;*/
 }
 
 .embed > div > .loader {
@@ -1166,9 +1195,9 @@ article > footer {
 /*** FILTRE FORMATS
 --------------------------------*/
 input[id="filter-format-all"]:checked ~ nav [for^="filter-format"],
-input[id="filter-format-fichepedagogique"]:checked ~ nav [for="filter-format-fichepedagogique"],
+input[id="filter-format-fichedocumentaire"]:checked ~ nav [for="filter-format-fichedocumentaire"],
 input[id="filter-format-activite"]:checked ~ nav [for="filter-format-activite"],
-input[id="filter-format-video"]:checked ~ nav [for="filter-format-video"],
+input[id="filter-format-media"]:checked ~ nav [for="filter-format-media"],
 input[id="filter-format-outils"]:checked ~ nav [for="filter-format-outils"],
 input[id="filter-format-metier"]:checked ~ nav [for="filter-format-metier"] 
 {
@@ -1176,9 +1205,9 @@ input[id="filter-format-metier"]:checked ~ nav [for="filter-format-metier"]
 }
 
 input[id="filter-format-all"]:checked ~ [data-format],
-input[id="filter-format-fichepedagogique"]:checked ~ [data-format*="fichepedagogique"],
+input[id="filter-format-fichedocumentaire"]:checked ~ [data-format*="fichedocumentaire"],
 input[id="filter-format-activite"]:checked ~ [data-format*="activite"],
-input[id="filter-format-video"]:checked ~ [data-format*="video"],
+input[id="filter-format-media"]:checked ~ [data-format*="media"],
 input[id="filter-format-outils"]:checked ~ [data-format*="outils"],
 input[id="filter-format-metier"]:checked ~ [data-format*="metier"]
 {
@@ -1211,7 +1240,6 @@ input[id^="filter-format"]:checked ~ nav [for^="filter-format"]:hover {
 ------------*/
 
 .tag {
-/*    background: #333;*/
     color: #333;
     border-radius: 5px;
     padding: 5px 10px;
@@ -1220,11 +1248,15 @@ input[id^="filter-format"]:checked ~ nav [for^="filter-format"]:hover {
     position: relative; /*pour positionnement du badge*/
 }
 
-.full aside .tag {
+.full aside .tag,
+.tag[role="edit-page"],
+[role="related"] .tag {
     background: #333;
     color: #FFF;
 }
-.full aside .tag:hover {
+.full aside .tag:hover,
+.tag[role="edit-page"]:hover,
+[role="related"] .tag:hover {
     background: #666;
     color: #FFF;
 }
@@ -1237,6 +1269,23 @@ a.tag:hover {
 
 a[class*="th"]:hover {
     background: #BBB;
+}
+
+.tag[role="edit-page"] {
+    width: 300px;
+    position: fixed;
+    left:0;
+    top:33vh;
+    z-index: 1;
+    border-radius: 0 10px 10px 0;
+    background:;
+}
+
+.tag[role="edit-page"] a {
+    display: block;
+    padding: 20px;
+    color: #FFF;
+    text-decoration: none;
 }
 
 /*** BADGES 

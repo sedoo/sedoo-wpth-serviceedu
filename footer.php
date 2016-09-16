@@ -23,28 +23,20 @@
     </section>
     <section role="tutelles">
         <figure>
-            <img src="https://placehold.it/150x100?text=Logo1" alt="">
-            <figcaption></figcaption>
+            <a href="http://http://www.ac-toulouse.fr/" title="Lien vers le site de l'Académie de Toulouse">
+                <img src="<?php bloginfo( 'template_url' ); ?>/images/ac-toulouse_logo.jpg" alt="">
+            </a>
+            <figcaption>
+                <a href="http://http://www.ac-toulouse.fr/" title="Lien vers le site de l'Académie de Toulouse">Académie de Toulouse</a>
+            </figcaption>
         </figure>
         <figure>
-            <img src="https://placehold.it/150x100?text=Logo2" alt="">
-            <figcaption></figcaption>
-        </figure>
-        <figure>
-            <img src="https://placehold.it/150x100?text=Logo3" alt="">
-            <figcaption></figcaption>
-        </figure>
-        <figure>
-            <img src="https://placehold.it/150x100?text=Logo4" alt="">
-            <figcaption></figcaption>
-        </figure>
-        <figure>
-            <img src="https://placehold.it/150x100?text=Logo5" alt="">
-            <figcaption></figcaption>
-        </figure>
-        <figure>
-            <img src="https://placehold.it/150x100?text=Logo6" alt="">
-            <figcaption></figcaption>
+           <a href="http://www.univ-tlse3.fr" title="Lien vers le site de l'Université Paul Sabatier - Toulouse 3">
+                <img src="<?php bloginfo( 'template_url' ); ?>/images/logo_univ-tlse.png" alt="">
+            </a>
+            <figcaption>
+                <a href="http://www.univ-tlse3.fr" title="Lien vers le site de l'Université Paul Sabatier - Toulouse 3">Université Paul Sabatier - Toulouse 3</a>
+            </figcaption>
         </figure>
     </section>
 </footer>

@@ -4,7 +4,6 @@ Template Name: Homepage
 */
 get_header(); 
 
-
 ?>
 
 <div class="wrapper-container">
@@ -79,7 +78,7 @@ get_header();
                 ?>
             </section>
             <section class="twoColumns">
-                <h2>6 ressources au hazard...</h2>
+                <h2>6 ressources au hasard...</h2>
               <?php
                 /*******  WP_QUERY
                 * Liste de pages au hazard, avec exclusion des pages d'information (custom settings dans Menu admin)
