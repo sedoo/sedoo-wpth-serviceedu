@@ -4,12 +4,9 @@
 * Template des pages embed
 */
 
-function show_pages(){
-    
-}
-
 /******************************************************************
 * Creation de liste des pages en fonction d'arguments passés à WP_Query()
+* Appelle le template content-embed-page.php
 */
 
 function list_pages($arg){
@@ -23,57 +20,11 @@ function list_pages($arg){
     <div id="i-scroll">    
         <?php
         while ( $queryListPages->have_posts() ) :
-            $queryListPages->the_post();
-            
-            $themes = get_the_terms( $post->ID, 'thematique');            
-            $typeressources = get_the_terms( $post->ID, 'typeressource'); 
-            $niveaux = get_the_terms( $post->ID, 'niveau');
+            $queryListPages->the_post(); 
         
-            if ( $themes) {
-                $outputTheme="";
-                foreach ($themes as $theme) {
-                    $outputTheme.='<div class="'.$theme->slug.'Bg">
-                        <svg class="">
-                              <use xlink:href="#'.$theme->slug.'"/>
-                            </svg>                  
-                    </div>';
-                    // class="<?php echo $outputTheme;Border"
-                } 
-            }
-
-            if( $typeressources ){
-                $outputTyperessource="";
-                foreach( $typeressources as $typeressource ) {
-                    $outputTyperessource.="<p><span class=\"icon-".$typeressource->slug."\"></span> ".$typeressource->name."</p>\n";
-                }              
-            } 
-        ?>
+            // Appel embed template
+            get_template_part( 'template-parts/content', 'embed-page' );
        
-        <article>
-           <?php echo $outputTheme;?>
-            <header>
-                <?php echo $outputTyperessource;?>
-                <h1>
-                   <a href="<?php the_permalink(); ?>">
-                    <?php the_title();?>
-                    </a>
-                <?php
-                if( $niveaux ): 
-                    foreach( $niveaux as $niveau ): ?>
-                        <small><?php echo $niveau->name; ?></small>
-                <?php endforeach; 
-                  endif; ?>
-                </h1>
-                <figure><?php the_post_thumbnail( 'illustration-article' ); ?></figure>
-
-            </header>
-            <section>
-               <?php the_excerpt(); ?>
-                <a href="<?php the_permalink(); ?>" class="tag"><span class="icon-angle-right"></span> Lire la suite</a>
-            </section>
-
-        </article>
-        <?php
         endwhile;
         ?>
         
@@ -96,6 +47,10 @@ function list_pages($arg){
     // Restore original Post Data
     wp_reset_postdata();
 }
+
+/******************************************************************
+*Liste sous forme de bouton les pages en relation (taxonomie) en fonction des arguments passés à WP_Query()
+*/
 
 function related_list_pages($arg){
 

@@ -1,6 +1,7 @@
 <?php
 /******************************************************************
 * Filtre Full CSS en fonction des customs taxonomies 
+* A n'utiliser que si peu de résultats dans list_pages() (pages-list.php)
 */
 
 function taxonomies_filter($taxonomy_name) {

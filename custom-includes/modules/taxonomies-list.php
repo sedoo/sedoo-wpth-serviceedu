@@ -96,8 +96,8 @@ function taxonomies_secondFilter_list($masterTaxonomyName, $masterTermSlug, $tax
           $argsListPages = array (
             'post_type'             => array( 'page' ),
             'post_status'           => array( 'publish' ),
-            'posts_per_page'        => -1,                  // 15-09
-            'nopaging'              => true,                // 15-09
+            'posts_per_page'        => -1,
+            'nopaging'              => true,
             'tax_query' => array(
                                 'relation' => 'AND',
                                 array(
