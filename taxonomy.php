@@ -101,7 +101,7 @@ if ($_GET['second_filter']) {
                         ),
     );
 
-    list_pages($argsListPages);
+    list_pages($argsListPages, true);
 }
 else {
 
@@ -121,7 +121,7 @@ else {
                         ),
     );
 
-    list_pages($argsListPages);    
+    list_pages($argsListPages, true);    
 
 }?>
         

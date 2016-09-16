@@ -9,10 +9,10 @@
 
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'portal-serviceedu' ); ?></h1>
-	</header><!-- .page-header -->
+<section class="no-results">
+	<header>
+		<h1>Pas de résultat...</h1>
+	</header>
 
 	<div class="page-content">
 		<?php
@@ -22,13 +22,14 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'portal-serviceedu' ); ?></p>
+			<p>Désolé, rien ne correspond à vos critères de recherche. Merci d'essayer avec d'autres mots clés.
+			<?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'portal-serviceedu' ); ?></p>
 			<?php
 				get_search_form();
 
 		else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'portal-serviceedu' ); ?></p>
+			<p>Vous ne trouvez pas ce que vous cherchez, le moteur de recherche peut vous aider...</p>
 			<?php
 				get_search_form();
 

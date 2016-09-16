@@ -35,17 +35,7 @@ $themes = get_the_terms( $post->ID, 'thematique');              // recup les ter
                         </a>
                         <?php endforeach; ?>
                     </div>
-                <?php endif; ?>
-                    <div>
-                        
-                        <?php
-                        if( $typeressources ): 
-                            foreach( $typeressources as $typeressource ): ?>
-                            <p><span class="icon-<?php echo $typeressource->slug; ?>"></span> <?php echo $typeressource->name; ?></p>
-                        <?php 
-                            endforeach; 
-                        endif; ?>
-                    </div>
+                <?php endif; ?>                    
                 </section>
                 
                 <h1><?php the_title();?>
@@ -73,11 +63,11 @@ $themes = get_the_terms( $post->ID, 'thematique');              // recup les ter
                     edit_post_link(
                         sprintf(
                             /* translators: %s: Name of current post */
-                            esc_html__( 'Edit %s', 'portal-serviceedu' ),
-                            the_title( '<span class="screen-reader-text">"', '"</span>', false )
+                            esc_html__( '%s', 'portal-serviceedu' ),
+                            the_title( '<span class=" dashicons dashicons-welcome-write-blog"></span> <span class="screen-reader-text">"', '"</span>', false )
                         ),
-                        '<span class="edit-link">',
-                        '</span>'
+                        '<div class="tag" role="edit-page">',
+                        '</div>'
                     );
                 ?>
             </footer>

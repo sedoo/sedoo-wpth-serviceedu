@@ -671,13 +671,15 @@ main {
     justify-content: space-between;
 }
 
-/*** Homepage
+/*** Homepage & archive
 ----------------------------------------------------------------------------------------*/
 .homepage header {
     width: 100%;
 }
 
-.homepage section h2 {
+.homepage section h2,
+.archive section h2
+{
     padding:20px;
     background: #333;
     color: white;
@@ -701,7 +703,8 @@ main {
 }
 
 .homepage > div > section > article > section,
-.homepage > aside > section {
+.homepage > aside > section,
+.archive > aside > section {
     padding:0 20px;
 }
 
@@ -722,21 +725,25 @@ main {
 }
 
 @media (min-width:768px) {
-    .homepage > div {
+    .homepage > div,
+    .archive > section {
         max-width: 62.6667%;
         margin-right: 4%;
     }
 
-    .homepage > aside {
+    .homepage > aside,
+    .archive > aside {
         width: 33.3334%;
     }
-    .homepage > aside > section {
+    .homepage > aside > section,
+    .archive > aside > section{
     margin-bottom: 20px;
     border-left:1px solid #CCC;
     } 
 }
 
-.homepage > aside > section {
+.homepage > aside > section,
+.archive > aside > section {
     margin-bottom: 40px;
 } 
 
@@ -911,10 +918,10 @@ div article {
     margin-top: 0;
     border: 1px solid #EEE;
 }
-.embed article > div {
+.embed article > div,
+.homepage article > div {
     flex: 1 1 50px;
     height: 32px;
-/*    width: 100%;*/
     padding-top: 2px;
     text-align: center;
 }
@@ -977,6 +984,12 @@ article > div aside > *:not(h2) {
 article > div aside > *:not(h2) {
     border-bottom: 1px solid #666;
 }
+
+article div > aside a {
+    color: #FFF;
+    text-decoration: none;
+}
+
 
 article > section > p {
     text-align: justify;
@@ -1176,11 +1189,19 @@ article > footer {
     display: none;
 }
 
-.embed > div > article {
+.embed article {
     flex-grow:1;
     flex-shrink: 0;
     flex-basis: 300px;
     margin: 20px;
+    transition: all .4s ease;
+}
+
+.archive article {
+    flex-grow:1;
+    flex-shrink: 1;
+    flex-basis: 300px;
+    margin: 0;
     transition: all .4s ease;
 }
 
@@ -1367,11 +1388,7 @@ a[class*="th"]:hover {
 }
 
 @media (min-width:1024px) {                    /*------------  1024px  --------------------------*/
-/*
-    .full > article > aside {
-        padding: 20px 0 20px 20px;
-    }
-*/
+
 }
 
 @media (min-width:1044px) {                    /*------------  1044px  --------------------------*/
@@ -1397,31 +1414,9 @@ a[class*="th"]:hover {
       max-width: 1300px;
     }
 
-/*
-    
-    [id="sidebar-wrapper"] {
-
-        z-index: 1000;
-        position: absolute;
-        left: 0;
-        top: 33px;
-        width: 375px;
-        background:none;
-
-    }
-    .navLeft ul > li {
-        border-bottom: 1px solid #CCC;
-        text-transform: uppercase;
-    }
-*/
     .navLeft ul li a {
         padding:20px;
     }
-/*
-    .navLeft ul li a:hover {
-        background: #CCC;
-    }
-*/
     
     
     .wrapper-container.page > main{
