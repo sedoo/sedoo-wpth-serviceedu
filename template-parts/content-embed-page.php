@@ -44,7 +44,20 @@ if( $typeressources ){
         <?php endforeach; 
           endif; ?>
         </h1>
-        <figure><?php the_post_thumbnail( 'illustration-article' ); ?></figure>
+        <figure>
+        <?php 
+        if (get_the_post_thumbnail()) {
+        ?>
+        <?php the_post_thumbnail( 'illustration-article' ); ?>
+        <?php 
+        }else {
+        ?>
+        
+        <img src="<?php bloginfo( 'template_url' );echo "/images/".term_defaultImg($themes[0]->slug)."";?>" alt="">
+        <?php
+        }
+        ?>
+        </figure>
 
     </header>
     <section>

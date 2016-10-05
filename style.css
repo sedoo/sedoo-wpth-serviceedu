@@ -479,6 +479,67 @@ h1 small {
 [data-theme="planeto"] blockquote
 {border-color: #E25B3D;}
 
+/* ILLUSTRATIONS PAR DEFAUT */
+
+/*
+.figureDefault {
+    height: 500px;
+}
+
+.embed .figureDefault {
+    height: 250px;
+}
+
+[data-theme="aero"] .figureDefault,
+.aeroBg + header .figureDefault
+{
+    background: url(images/bkgAeroColor.png) no-repeat;
+    background-size:cover;
+}
+
+[data-theme="astro"] .figureDefault,
+.astroBg + header .figureDefault
+{
+    background: url(images/bkgAstroColor.png) no-repeat;
+    background-size:cover;
+}
+
+[data-theme="biosphere"] .figureDefault,
+.biosphereBg + header .figureDefault
+{
+    background: url(images/bkgBioColor.png) no-repeat;
+    background-size:cover;
+}
+
+[data-theme="ecologie"] .figureDefault,
+.ecologieBg + header .figureDefault
+{
+    background: url(images/bkgEcoColor.png) no-repeat;
+    background-size:cover;
+}
+
+[data-theme="geosciences"] .figureDefault,
+.geosciencesBg + header .figureDefault
+{
+    background: url(images/bkgGeoColor.png) no-repeat;
+    background-size:cover;
+}
+
+[data-theme="oceano"] .figureDefault,
+.oceanoBg + header .figureDefault
+{
+    background: url(images/bkgOceanoColor.png) no-repeat;
+    background-size:cover;
+}
+
+[data-theme="planeto"] .figureDefault,
+.planetoBg + header .figureDefault
+{
+    background: url(images/bkgPlanetoColor.png) no-repeat;
+    background-size:cover;
+}
+*/
+
 /*** HEADER COMMONS
 --------------------------------*/
 
@@ -894,6 +955,7 @@ article {
 
 article > header {
     position: relative;
+    width: 100%;
 }
 
 article > header > p {
@@ -905,6 +967,7 @@ article > header > p {
 article > header > figure {
     margin: 0;
     padding-bottom: 5px;
+    text-align: center;
 }
 
 article > header > h1 {
@@ -1349,6 +1412,9 @@ a[class*="th"]:hover {
  height: 100%;
 }
 
+iframe {
+    max-width: 100%;
+}
 
 /*** MEDIA QUERIES
 --------------------------------*/
