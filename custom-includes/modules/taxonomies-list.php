@@ -46,6 +46,25 @@ if (is_tax('motcle', $term)) {
     return $title;
 }
 
+/******************************************************************
+* Récup url image par défaut des thématiques 
+*/
+
+function term_defaultImg($term) {
+
+$thematiques=array(
+    "aero" => "bkgAeroColor.png",
+    "astro" => "bkgAstroColor.png",
+    "biosphere" => "bkgBioColor.png",
+    "ecologie" => "bkgEcoColor.png",
+    "geosciences" => "bkgGeoColor.png",
+    "oceano" => "bkgOceanoColor.png",
+    "planeto" => "bkgPlanetoColor.png",
+);
+
+    $image = $thematiques[$term];
+    return $image;
+}
 
 /******************************************************************
 * Creation de la liste des terms d'une taxonomie nommée 
