@@ -41,7 +41,7 @@
     </section>
 </footer>
 
-<?php include('svg/disciplines.svg');?>
+<?php include('svg/themes-serveduV2.svg');?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="<?php bloginfo('template_directory');?>/js/toc.js"></script>
