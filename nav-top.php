@@ -1,44 +1,44 @@
-<nav role="top-menu">
-    <a href="<?php bloginfo( 'url' ); ?>/thematique/astro">
-         <svg class="">
-          <use xlink:href="#astro"/>
-        </svg>
-        <span>Astronomie</span>
-    </a>
-    <a href="<?php bloginfo( 'url' ); ?>/thematique/aero">
-         <svg class="">
-          <use xlink:href="#aero"/>
+<nav role="top-menu">    
+    <a href="<?php bloginfo( 'url' ); ?>/thematique/atmosphere">
+         <svg class="atmosphereBg">
+          <use xlink:href="#atmosphere"/>
         </svg>
         <span>Atmosphère</span>
     </a>
     <a href="<?php bloginfo( 'url' ); ?>/thematique/biosphere">
-         <svg class="">
+         <svg class="biosphereBg">
           <use xlink:href="#biosphere"/>
         </svg>
         <span>Biosphère</span>
     </a>
-    <a href="<?php bloginfo( 'url' ); ?>/thematique/ecologie">
-         <svg class="">
-          <use xlink:href="#ecologie"/>
+    <a href="<?php bloginfo( 'url' ); ?>/thematique/environnement">
+         <svg class="environnementBg">
+          <use xlink:href="#environnement"/>
         </svg>
-        <span>Ecologie</span>
+        <span>Environnement</span>
     </a>
-    <a href="<?php bloginfo( 'url' ); ?>/thematique/geosciences">
-         <svg class="">
-          <use xlink:href="#geosciences"/>
+    <a href="<?php bloginfo( 'url' ); ?>/thematique/hydrosphere">
+         <svg class="hydrosphereBg">
+          <use xlink:href="#hydrosphere"/>
         </svg>
-        <span>Géosciences</span>
+        <span>Hydrosphère</span>
     </a>
-    <a href="<?php bloginfo( 'url' ); ?>/thematique/oceano">
-         <svg class="">
-          <use xlink:href="#oceano"/>
+    <a href="<?php bloginfo( 'url' ); ?>/thematique/planete-terre">
+         <svg class="planete-terreBg">
+          <use xlink:href="#planete-terre"/>
         </svg>
-        <span>Océanographie</span>
+        <span>Planète Terre</span>
     </a>
-    <a href="<?php bloginfo( 'url' ); ?>/thematique/planeto">
-         <svg class="">
-          <use xlink:href="#planeto"/>
+    <a href="<?php bloginfo( 'url' ); ?>/thematique/systeme-solaire">
+         <svg class="systeme-solaireBg">
+          <use xlink:href="#systeme-solaire"/>
         </svg>
-        <span>Planétologie</span>
+        <span>Système solaire</span>
+    </a>
+    <a href="<?php bloginfo( 'url' ); ?>/thematique/univers">
+         <svg class="universBg">
+          <use xlink:href="#univers"/>
+        </svg>
+        <span>Univers</span>
     </a>
 </nav>

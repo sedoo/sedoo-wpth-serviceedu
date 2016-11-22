@@ -7,12 +7,12 @@ function term_name($term) {
 
 $thematiques=array(
     "aero" => "Atmosphère",
-    "astro" => "Astronomie",
+    "astro" => "Univers",
     "biosphere" => "Biosphère",
-    "ecologie" => "Ecologie",
-    "geosciences" => "Géosciences",
-    "oceano" => "Océanographie",
-    "planeto" => "Planétologie",
+    "ecologie" => "Environnement",
+    "geosciences" => "Planète Terre",
+    "oceano" => "Hydrosphère",
+    "planeto" => "Système solaire",
 );
 
 $nameTyperessources=array(
@@ -53,13 +53,13 @@ if (is_tax('motcle', $term)) {
 function term_defaultImg($term) {
 
 $thematiques=array(
-    "aero" => "bkgAeroColor.png",
-    "astro" => "bkgAstroColor.png",
-    "biosphere" => "bkgBioColor.png",
-    "ecologie" => "bkgEcoColor.png",
-    "geosciences" => "bkgGeoColor.png",
-    "oceano" => "bkgOceanoColor.png",
-    "planeto" => "bkgPlanetoColor.png",
+    "atmosphere" => "bkgAtmosphereColor.png",
+    "biosphere" => "bkgBiosphereColor.png",
+    "environnement" => "bkgEnvironnementColor.png",
+    "hydrosphere" => "bkgHydrosphereColor.png",
+    "planete-terre" => "bkgPlanete-terreColor.png",
+    "systeme-solaire" => "bkgSysteme-solaireColor.png",    
+    "univers" => "bkgUniversColor.png",
 );
 
     $image = $thematiques[$term];
