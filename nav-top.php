@@ -1,10 +1,4 @@
-<nav role="top-menu">
-    <a href="<?php bloginfo( 'url' ); ?>/thematique/astro">
-         <svg class="">
-          <use xlink:href="#astro"/>
-        </svg>
-        <span>Astronomie</span>
-    </a>
+<nav role="top-menu">    
     <a href="<?php bloginfo( 'url' ); ?>/thematique/aero">
          <svg class="">
           <use xlink:href="#aero"/>
@@ -21,24 +15,30 @@
          <svg class="">
           <use xlink:href="#ecologie"/>
         </svg>
-        <span>Ecologie</span>
-    </a>
-    <a href="<?php bloginfo( 'url' ); ?>/thematique/geosciences">
-         <svg class="">
-          <use xlink:href="#geosciences"/>
-        </svg>
-        <span>Géosciences</span>
+        <span>Environnement</span>
     </a>
     <a href="<?php bloginfo( 'url' ); ?>/thematique/oceano">
          <svg class="">
           <use xlink:href="#oceano"/>
         </svg>
-        <span>Océanographie</span>
+        <span>Hydrosphère</span>
+    </a>
+    <a href="<?php bloginfo( 'url' ); ?>/thematique/geosciences">
+         <svg class="">
+          <use xlink:href="#geosciences"/>
+        </svg>
+        <span>Planète Terre</span>
     </a>
     <a href="<?php bloginfo( 'url' ); ?>/thematique/planeto">
          <svg class="">
           <use xlink:href="#planeto"/>
         </svg>
-        <span>Planétologie</span>
+        <span>Système solaire</span>
+    </a>
+    <a href="<?php bloginfo( 'url' ); ?>/thematique/astro">
+         <svg class="">
+          <use xlink:href="#astro"/>
+        </svg>
+        <span>Univers</span>
     </a>
 </nav>

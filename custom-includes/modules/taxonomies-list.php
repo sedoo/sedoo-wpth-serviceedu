@@ -7,12 +7,12 @@ function term_name($term) {
 
 $thematiques=array(
     "aero" => "Atmosphère",
-    "astro" => "Astronomie",
+    "astro" => "Univers",
     "biosphere" => "Biosphère",
-    "ecologie" => "Ecologie",
-    "geosciences" => "Géosciences",
-    "oceano" => "Océanographie",
-    "planeto" => "Planétologie",
+    "ecologie" => "Environnement",
+    "geosciences" => "Planète Terre",
+    "oceano" => "Hydrosphère",
+    "planeto" => "Système solaire",
 );
 
 $nameTyperessources=array(
