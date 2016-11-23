@@ -893,6 +893,7 @@ div article {
 }
 
 a.tag > svg,
+.embed > h1 > svg,
 [role="metaTags"] > :first-child > a > svg {
     height: 50px;
     width: 50px;
@@ -901,6 +902,7 @@ a.tag > svg,
 }
 
 a.tag > svg > *,
+.embed > h1 > svg > *,
 [role="metaTags"] > :first-child > a > svg > * {
     -webkit-transform: scale(.7);
     transform: scale(.7);
@@ -1005,7 +1007,8 @@ article > footer {
     vertical-align: middle;
 }
 
-[role="metaTags"] > :first-child > a > svg  {
+[role="metaTags"] > :first-child > a > svg,
+.embed > h1 > svg {
     margin-right: 10px;
 }
 
@@ -1088,11 +1091,6 @@ article > footer {
     display: inline-block;
     vertical-align: middle;
     text-align: left;
-}
-
-.embed > h1 > svg {
-    height: 40px;
-    width: 48px;
 }
 
 .embed > nav[role="termsList"] {
