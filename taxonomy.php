@@ -18,7 +18,7 @@ get_header();
          if (is_tax('thematique', $term)) {
         ?>
 
-       <svg class="">
+       <svg class="<?php echo "$term"; ?>Bg">
           <use xlink:href="#<?php echo "$term"; ?>"/>
         </svg>
         <span><?php echo term_name($term);?></span>
