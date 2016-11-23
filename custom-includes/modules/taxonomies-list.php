@@ -6,13 +6,13 @@
 function term_name($term) {
 
 $thematiques=array(
-    "aero" => "Atmosphère",
-    "astro" => "Univers",
+    "atmosphere" => "Atmosphère",
     "biosphere" => "Biosphère",
-    "ecologie" => "Environnement",
-    "geosciences" => "Planète Terre",
-    "oceano" => "Hydrosphère",
-    "planeto" => "Système solaire",
+    "environnement" => "Environnement",
+    "hydrosphere" => "Hydrosphère",
+    "planete-terre" => "Planète Terre",
+    "systeme-solaire" => "Système solaire",
+    "univers" => "Univers",
 );
 
 $nameTyperessources=array(
@@ -137,14 +137,16 @@ function taxonomies_secondFilter_list($masterTaxonomyName, $masterTermSlug, $tax
             // si résultat, on affiche le term avec le nbre de post associé
             if ($count > 0) {
                 $queryListPages->the_post();
-                $termsList.='<a href="'.$url.'" class="tag">';
+                $termsList.='<a href="'.$url.'" class="tag';
                 if (has_term($term->slug, 'thematique')) {
-                    $termsList.='<svg class="">
+                    $termsList.=' noborder">'; // si thematique on supprime les bordures
+                    $termsList.='<svg class="'.$term->slug.'Bg">
                           <use xlink:href="#'.$term->slug.'"/>
                         </svg>
                         <span>'.$term->name.'</span>';
                                          
                 } else {
+                     $termsList.='">'; // fin de class="tag sur élément <a>
                      $termsList.='<span class="icon-'.$term->slug.'"></span> '.$term->name.'';
                 }
                 $termsList.='<span class="badge">'.$count.'</span></a>';
