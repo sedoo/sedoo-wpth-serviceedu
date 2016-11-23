@@ -34,7 +34,7 @@ if( $motsCles ){
                 <?php
                 foreach( $themes as $theme ){ ?>
                 <a href="<?php echo get_term_link( $theme ); ?>" title="Voir toutes les documents de cette thématique">
-                    <svg class="">
+                    <svg class="<?php echo $theme->slug."Bg";?>">
                       <use xlink:href="#<?php echo $theme->slug; ?>"/>
                     </svg>
                     <span><?php echo $theme->name; ?></span>
