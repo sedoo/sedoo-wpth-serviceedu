@@ -280,12 +280,17 @@ img {
 
 /*--------------------------------*/
 
+p a {
+    color:#1F7E9E;
+}
+p a:hover {
+    color:#E25B3D;
+}
 
 a.tag,
 body > header > a {
     text-decoration: none;
 }
-
 
 a,
 label {
@@ -298,8 +303,7 @@ blockquote {
     border-left-width: 5px;
     border-left-style: solid;
     font-size: 1.8em;
-    color:#888;
-    
+    color:#888;    
 }
 
 h1 small {
@@ -322,7 +326,6 @@ h1 small {
     padding: 0;
 }
 
-
 /*** SVG && COLORS
 --------------------------------*/
 
@@ -333,39 +336,17 @@ h1 small {
 [id="planete-terre"],
 [id="systeme-solaire"],
 [id="univers"] {
+    fill:#FFF;
+}
 /*
-    -webkit-transform: scale(0.45);
-    transform: scale(0.45);
+[id="atmosphere"] {fill: #90BCD1;}
+[id="univers"] {fill: #2D4F59;}
+[id="biosphere"] {fill: #B6CC49;}
+[id="environnement"] {fill: #7DBF3B;}
+[id="planete-terre"] {fill: #DD9946;}
+[id="hydrosphere"] {fill: #1F7E9E;}
+[id="systeme-solaire"] {fill: #E25B3D;}
 */
-}
-
-[id="atmosphere"] {
-    fill: #90BCD1;
-}
-
-[id="univers"] {
-    fill: #2D4F59;
-}
-
-[id="biosphere"] {
-    fill: #B6CC49;
-}
-
-[id="environnement"] {
-    fill: #7DBF3B;
-}
-
-[id="planete-terre"] {
-    fill: #DD9946;
-}
-
-[id="hydrosphere"] {
-    fill: #1F7E9E;
-}
-
-[id="systeme-solaire"] {
-    fill: #E25B3D;
-}
 
 
 /* TEXT COLOR */
@@ -449,7 +430,9 @@ h1 small {
 [data-theme="systeme-solaire"] [role="related"]
 {background: #E25B3D;}
 
-.atmosphereBg, .universBg, .biosphereBg, .environnementBg, .planete-terreBg, .hydrosphereBg, .systeme-solaireBg {color: white;}
+.atmosphereBg, .universBg, .biosphereBg, .environnementBg, .planete-terreBg, .hydrosphereBg, .systeme-solaireBg {
+    color: white;
+}
 
 /* BORDER COLOR */
 
@@ -481,67 +464,6 @@ h1 small {
 [data-theme="systeme-solaire"] blockquote
 {border-color: #E25B3D;}
 
-/* ILLUSTRATIONS PAR DEFAUT */
-
-/*
-.figureDefault {
-    height: 500px;
-}
-
-.embed .figureDefault {
-    height: 250px;
-}
-
-[data-theme="atmosphere"] .figureDefault,
-.atmosphereBg + header .figureDefault
-{
-    background: url(images/bkgAeroColor.png) no-repeat;
-    background-size:cover;
-}
-
-[data-theme="univers"] .figureDefault,
-.universBg + header .figureDefault
-{
-    background: url(images/bkgAstroColor.png) no-repeat;
-    background-size:cover;
-}
-
-[data-theme="biosphere"] .figureDefault,
-.biosphereBg + header .figureDefault
-{
-    background: url(images/bkgBioColor.png) no-repeat;
-    background-size:cover;
-}
-
-[data-theme="environnement"] .figureDefault,
-.environnementBg + header .figureDefault
-{
-    background: url(images/bkgEcoColor.png) no-repeat;
-    background-size:cover;
-}
-
-[data-theme="planete-terre"] .figureDefault,
-.planete-terreBg + header .figureDefault
-{
-    background: url(images/bkgGeoColor.png) no-repeat;
-    background-size:cover;
-}
-
-[data-theme="hydrosphere"] .figureDefault,
-.hydrosphereBg + header .figureDefault
-{
-    background: url(images/bkgOceanoColor.png) no-repeat;
-    background-size:cover;
-}
-
-[data-theme="systeme-solaire"] .figureDefault,
-.systeme-solaireBg + header .figureDefault
-{
-    background: url(images/bkgPlanetoColor.png) no-repeat;
-    background-size:cover;
-}
-*/
-
 /*** HEADER COMMONS
 --------------------------------*/
 
@@ -559,7 +481,6 @@ body > header h1 span {
     color: #666;
     padding: 0 0 0.6em 0.1em;
 }
-
 
 /*** HEADER STANDARD 
 --------------------------------*/
@@ -604,7 +525,6 @@ body > header > a + a + a {
     align-self: center;
 } 
 
-
 body > header > a:hover,
 body > header > a:active,
 body > header > a:focus {
@@ -627,23 +547,10 @@ body > header h1 {
 
 @media (min-width:480px) {                    /*------------  480px  --------------------------*/
     body > header > a {
-        /*width: auto;*/
     }
     body > header h1 {
         font-size: 3rem;
     }
-}
-
-@media (min-width:650px) {                    /*------------  650px  --------------------------*/
-    
-/*
-    body > header > a + a {
-        width: auto;
-    }
-    body > header > a + a + a {
-        width: auto;
-    }
-*/
 }
 
 @media (min-width:768px) {                    /*------------  769px  --------------------------*/
@@ -663,8 +570,7 @@ body > header h1 {
         flex-grow: 1;
         flex-shrink: 0;
         flex-basis: 280px;
-        border: none;
-        
+        border: none;        
     }
 }
 
@@ -700,7 +606,7 @@ body > header h1 {
 [role="top-menu"] > a {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 150px;
+    flex-basis: 145px;
     padding: 20px 0;
     position: relative;
     text-align: center;
@@ -754,7 +660,6 @@ main {
     text-transform: uppercase;
 }
 
-
 .twoColumns {
     display: flex;
     flex-flow: row wrap;
@@ -788,7 +693,7 @@ main {
     text-transform: uppercase;
 }
 
-.homepage nav[role="termsList"] a{
+.homepage nav[role="termsList"] a {
     display: block;
 }
 
@@ -863,12 +768,6 @@ main.pageInfo {
     display: none;
 }
 
-/*
-.pageInfo [role="sommaire"] {
-    width: 100%;
-}
-*/
-
 .pageInfo .is-sticky [role="sommaire"] {
     background: rgba(204,204,204,.9);
 }
@@ -882,8 +781,7 @@ main.pageInfo {
     color: #333;
 }
 
-@media (min-width:768px) {
-    
+@media (min-width:768px) {    
     .pageInfo #sticky-wrapper {
         display: block;
     }
@@ -910,7 +808,6 @@ main.pageInfo > article > header > h1 {
     padding:0 20px;
     font-size: 2em;
 }
-
 
 /*** footer 
 --------------------------------*/
@@ -956,8 +853,7 @@ article {
     margin-top: 40px;
     display: flex;
     flex-flow: row wrap;
-    align-content: flex-start;
-    
+    align-content: flex-start;    
 }
 
 article > header {
@@ -996,16 +892,18 @@ div article {
     text-align: center;
 }
 
-a.tag > svg {
-    height: 40px;
-    width: 40px;
+a.tag > svg,
+[role="metaTags"] > :first-child > a > svg {
+    height: 50px;
+    width: 50px;
+    padding:8px;
+    border-radius:50%;
 }
 
-a.tag > svg [id] {
+a.tag > svg > *,
+[role="metaTags"] > :first-child > a > svg > * {
+    -webkit-transform: scale(.7);
     transform: scale(.7);
-}
-a.tag:hover > svg [id] {
-    fill:#FFF;
 }
 
 article > div > svg {
@@ -1014,12 +912,9 @@ article > div > svg {
     padding-left: 1px;
 }
 
-article > div > svg [id] {
+article > div > svg > *{
+    -webkit-transform: scale(.55);
     transform: scale(.55);
-}
-
-article > div > svg [id] {
-    fill:#FFF;
 }
 
 .full article {
@@ -1038,11 +933,6 @@ article > div > svg [id] {
 }
 
 article div > aside {
-/*
-    border-width: 1px 0 0 0;
-    border-style: solid;
-    border-color: #CCC;
-*/
     margin-top: 30px;
     width: 100%;
     height: auto;
@@ -1062,17 +952,10 @@ article > div aside > *:not(h2) {
     padding: 20px;
 }
 
-/*
-article > div aside > *:not(h2) {
-    border-bottom: 1px solid #666;
-}
-*/
-
 article div > aside a {
     color: #FFF;
     text-decoration: none;
 }
-
 
 article > section > p {
     text-align: justify;
@@ -1085,7 +968,6 @@ article > section > p {
 article > footer {
     flex: 1 1 auto;
 }
-
 
 [role="related"] {
     color:#FFF;
@@ -1105,8 +987,7 @@ article > footer {
 [role="metaTags"] > * {
     flex: 1 1 auto;
     margin-bottom: 20px;
-    color:#999;
-    
+    color:#999;    
     text-transform: uppercase;
 }
 
@@ -1124,9 +1005,8 @@ article > footer {
     vertical-align: middle;
 }
 
-[role="metaTags"] > :first-child > a > svg {
-    height: 40px;
-    width: 48px;
+[role="metaTags"] > :first-child > a > svg  {
+    margin-right: 10px;
 }
 
 [role="metaTags"] > :nth-child(2) > * {
@@ -1135,21 +1015,11 @@ article > footer {
     margin: 0;    
 }
 
-/* NIVEAU ??
-[role="metaTags"] > :nth-child(2) > :nth-child(2) {
-    background: #333;
-    padding: 5px 10px;
-    color: #FFF;
-}
-*/
-
-
 /*** Table of content TOC+
 --------------------------------*/
 [role="sommaire"] {
     display: none;
 }
-
 
 [role="sommaire"] a {
     display: block;
@@ -1170,7 +1040,6 @@ article > footer {
     top:15px;
     left: -6px;
     background: #ccc;
-/*    border:1px solid #ccc;*/
     border-radius: 50%;
     content: "";
 }
@@ -1200,7 +1069,6 @@ article > footer {
         display: block;
     }
 }
-
 
 /*** Article en liste
 --------------------------------*/
@@ -1290,7 +1158,6 @@ article > footer {
 
 .embed > div > article > header > p {
     color: #888;
-/*    font-size: 1.2em;*/
 }
 
 .embed > div > .loader {
@@ -1350,6 +1217,7 @@ input[id^="filter-format"]:checked ~ nav [for^="filter-format"]:hover {
     display: inline-block;
     margin-bottom: 10px;
     position: relative; /*pour positionnement du badge*/
+    border:1px dotted #DDD;
 }
 
 .full aside .tag,
@@ -1396,21 +1264,23 @@ a[class*="th"]:hover {
 ------------*/
 .badge {
     display: block;
-    width: 20px;
-    height: 20px;
+    padding: 0 5px;
     position: absolute;
     top:-10px;
     right: -10px;
-    opacity: 0;
-    background: #CCC;
-    border-radius:50%;
-    color: #333;
+    background: #DDD;
+    border-radius:5px;
+    color: #666;
     text-align: center;
     line-height: 20px;
     transition: all .8s ease; 
 }
 
-.tag:hover > .badge {
+.home .badge {
+    opacity: 0;
+}
+
+.home .tag:hover > .badge {
     opacity: 1;
 }
 
@@ -1438,7 +1308,6 @@ iframe {
 --------------------------------*/
 
 @media (min-width:480px) {                    /*------------  480px  --------------------------*/
-    
     [role="metaTags"] > :nth-child(2) {
         text-align: right;
     }
@@ -1463,7 +1332,6 @@ iframe {
     .full > article > section {
         width: 66.66666%;
     }
-
     .full > article > section + div {
         width: 33.33333%;
     }
@@ -1474,13 +1342,11 @@ iframe {
 }
 
 @media (min-width:1024px) {                    /*------------  1024px  --------------------------*/
-
 }
 
 @media (min-width:1044px) {                    /*------------  1044px  --------------------------*/
     .full > article > section {
         padding: 20px 20px 20px 0;
-/*        min-height: 670px;*/
     }
     [role="metaTags"] {
         padding: 0;
@@ -1488,29 +1354,20 @@ iframe {
 }
 
 @media (min-width:1300px) {                    /*------------  1300px  --------------------------*/
-
     [for="menu-toggle"] {
         display: none;
     }
-
-   
-
     .wrapper-container.page {
         position: relative;
       max-width: 1300px;
     }
-
     .navLeft ul li a {
         padding:20px;
-    }
-    
-    
+    }    
     .wrapper-container.page > main{
         width: 700px;
         margin-left: 400px;
     }
-
-    
     .embed > div > article {
         margin: 15px;
     }
