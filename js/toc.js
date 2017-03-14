@@ -32,6 +32,6 @@ $(document).ready(function(){
     // Fixe le sommaire au scroll (jquery.sticky.js)
     $(window).load(function(){
       $('div > aside').sticky({ topSpacing: 0 }); // utilisé sur page
-      $('li + nav[role="sommaire"]').sticky({ topSpacing: 0 }); // utilisé sur template-infos
+      //$('li + nav[role="sommaire"]').sticky({ topSpacing: 0 }); // utilisé sur template-infos
     });
 });

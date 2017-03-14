@@ -10,17 +10,6 @@ get_header();
     
     <main id="main" class="homepage" role="main">
        <div>
-        <?php
-//        if ( is_home() | is_front_page() ) : 
-        ?>
-<!--
-				<header>
-					<h1>Homepage</h1>
-				</header>
--->
-        <?php
-//        endif;
-        ?>
             <section>
                 <?php
             if ( have_posts() ) :
