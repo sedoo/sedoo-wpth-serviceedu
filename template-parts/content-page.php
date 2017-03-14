@@ -30,10 +30,11 @@ if( $motsCles ){
         <?php
         if( $themes ) {
             ?>
-            <div>
+            <div <?php if (count($themes) >3) {echo "class=\"cell\"";}?>>
                 <?php
+
                 foreach( $themes as $theme ){ ?>
-                <a href="<?php echo get_term_link( $theme ); ?>" title="Voir toutes les documents de cette thématique">
+                <a href="<?php echo get_term_link( $theme ); ?>" title="Voir toutes les documents de la thématique <?php echo $theme->name; ?>">
                     <svg class="<?php echo $theme->slug."Bg";?>">
                       <use xlink:href="#<?php echo $theme->slug; ?>"/>
                     </svg>

@@ -635,6 +635,19 @@ body > header h1 {
     background: #F0F0F0;
 }
 
+@media (max-width: 767px) {
+    [role="top-menu"] > a {
+        flex-basis: 70px;
+        padding: 0;
+    }
+    [role="top-menu"] a > svg {
+        transform: scale(0.7);
+    }
+    [role="top-menu"] a > svg + span {
+        display: none;
+    }
+}
+
 /*** Main 
 --------------------------------*/
 
@@ -1002,6 +1015,13 @@ article > footer {
     text-decoration: none;
 }
 
+[role="metaTags"] > :first-child.cell > a {
+    display: table-cell;
+}
+[role="metaTags"] > :first-child.cell > a > span {
+    display: none;
+}
+
 [role="metaTags"] > :first-child > a > * {
     display: table-cell;
     vertical-align: middle;
@@ -1063,8 +1083,16 @@ article > footer {
     color:#FFF;
     text-decoration: underline;
 }
+
+.navLeft [role="sommaire"] a.active {
+    color:#1f7e9e;
+}
+
 [role="sommaire"] a.active::before {
     background: #fff;
+}
+.navLeft [role="sommaire"] a.active::before {
+    background: #1f7e9e;
 }
 
 @media (min-width:768px) {
@@ -1215,7 +1243,7 @@ input[id^="filter-format"]:checked ~ nav [for^="filter-format"]:hover {
     display: inline-block;
     margin-bottom: 10px;
     position: relative; /*pour positionnement du badge*/
-    border:1px dotted #DDD;
+    border:1px solid #DDD;
 }
 
 .full aside .tag,
