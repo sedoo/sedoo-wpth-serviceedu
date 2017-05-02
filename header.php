@@ -24,11 +24,19 @@
 <body <?php body_class(); ?>>
    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'portal-serviceedu' ); ?></a>
     <header>
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="Retour à l'accueil"><img src="<?php bloginfo( 'template_url' ); ?>/images/logo-OMP2.png" alt="logo OMP" class="img-responsive"></a>
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"  title="Retour à l'accueil">
-            <img src="<?php bloginfo( 'template_url' ); ?>/images/icon_service_edu.png" alt="">
-            <h1>Service Educatif<span>Observatoire Midi-Pyrénées</span></h1>
-        </a>
-        <a href="<?php echo get_page_link(get_option('idPageDefault')); ?>">A propos / Echanges</a>
+        <div>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="Retour à l'accueil"><img src="<?php bloginfo( 'template_url' ); ?>/images/logo-OMP2.png" alt="logo OMP" class="img-responsive"></a>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"  title="Retour à l'accueil">
+                <img src="<?php bloginfo( 'template_url' ); ?>/images/icon_service_edu.png" alt="">
+                <h1>Service Educatif<span>Observatoire Midi-Pyrénées</span></h1>
+            </a>
+        </div>
+        <?php wp_nav_menu(array('theme_location' => 'top-menu',
+                        'menu_id' => 'header-menu',
+                        'container' => 'nav',
+                        'container_id' => 'headerBar-wrapper',
+                        'container_class' => 'navHeader',
+                        'depth' => '1',
+                        ));?>
         <?php include('nav-top.php'); ?>
     </header>
