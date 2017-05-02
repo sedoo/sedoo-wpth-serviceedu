@@ -495,39 +495,58 @@ body > header {
     display: flex;
     flex-flow: row wrap;
     align-content: center;
+    justify-content:space-between;
 }
 
-body > header img,
-body > header h1 {
+body > header > div {
+    display: flex;
+    align-content: stretch;
+}
+
+body > header > div > * {
+    align-self: center;
+}
+
+body > header > div img,
+body > header > div h1 {
     float: left;
 }
 
-body > header > a:nth-child(-n+2) {
+body > header > div > a:nth-child(-n+2) {
     display: block;
     font-size: 25px;
     line-height: 25px;
     color: #333;
 }
 
-body > header > a + a {
+/*body > header > a + a {
     margin-top: 15px;
-}
+}*/
 
-body > header > a + a + a {
+body > header > .navHeader {
     width: 100%;
     padding: 10px;
     border-top: 1px solid #CCC;
     border-bottom: 1px solid #CCC;
-    color: #333;
+    ;
     font-size: 16px;      
     text-align: center;
     text-transform: uppercase;
     align-self: center;
 } 
 
-body > header > a:hover,
-body > header > a:active,
-body > header > a:focus {
+body > header > .navHeader li {
+    display: inline-block;
+    margin-right: 30px;
+}
+body > header > .navHeader li a {
+    text-decoration: none;
+    color: #333;
+}
+
+body > header .navHeader li a:hover,
+body > header .navHeader li a:active,
+body > header .navHeader li a:focus {
     text-decoration: underline;
 }
 
@@ -539,6 +558,13 @@ body > header h1 {
     font-size: 24px;
 }
 
+[href*="scoop.it"]::before {
+    margin-right: 10px;
+    padding: 12px;
+    content: "";
+    background : url(images/it_24.png) no-repeat center center;
+}
+
 @media (min-width:360px) {                    /*------------  360px  --------------------------*/
     body > header h1 {
         margin-top: 14px;
@@ -546,8 +572,6 @@ body > header h1 {
 }
 
 @media (min-width:480px) {                    /*------------  480px  --------------------------*/
-    body > header > a {
-    }
     body > header h1 {
         font-size: 3rem;
     }
@@ -557,16 +581,13 @@ body > header h1 {
     body > header {
         margin-top: 0;
     }
-    body > header > a + a {
-/*        margin-top: 20px;*/
-    }
     body > header h1 {
         font-size: 3.2rem;
     }
     body > header > a + a > img {
         display: inline;
     }
-    body > header > a + a + a {
+    body > header > .navHeader {
         flex-grow: 1;
         flex-shrink: 0;
         flex-basis: 280px;
@@ -959,7 +980,7 @@ article aside > h2 {
     padding: 0px 20px;
     line-height: 100px;
     color:#FFF;
-    font-size: 3rem:
+    font-size: 3rem;
 }
 
 article > section,
@@ -1276,7 +1297,6 @@ a[class*="th"]:hover {
     top:33vh;
     z-index: 1;
     border-radius: 0 10px 10px 0;
-    background:;
 }
 
 .tag[role="edit-page"] a {

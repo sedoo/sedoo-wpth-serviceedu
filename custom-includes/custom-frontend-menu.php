@@ -13,8 +13,8 @@
 function register_menu_location() {
   register_nav_menus(
     array(
-      'side-menu' => __( 'Side Menu' ),
-      'extra-menu' => __( 'Extra Menu' )
+      'side-menu' => __( 'Menu page info' ),
+      'top-menu' => __( 'Top Menu' )
     )
   );
 }

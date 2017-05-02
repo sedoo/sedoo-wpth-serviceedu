@@ -58,7 +58,7 @@ include 'custom-post-type.php';
 * register_menu_location() -> Ajoute des emplacements de menu
 *
 */
-//include 'custom-frontend-menu.php';
+include 'custom-frontend-menu.php';
 
 /******************************************************************
 * MENU DANS BACKOFFICE 
