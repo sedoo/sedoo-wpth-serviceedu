@@ -8,7 +8,7 @@ $(document).ready(function(){
 	//$('main article aside').prepend('<nav role="sommaire"></nav>');
      var i=0;
     var navSommaire = '<nav role="sommaire"></nav>';
-    $('.current-menu-item').after(navSommaire);
+    $('.navLeft .current-menu-item').after(navSommaire);
     
 	// Sur chaque :header
 	$('article > section :header').each(function(){       
