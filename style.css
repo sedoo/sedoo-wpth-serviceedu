@@ -1,3 +1,28 @@
+/*
+Theme Name:   OMP - service educatif
+Theme URI:    
+Description:  Theme worpdress portail service éducatif OMP
+Author:       SEDOO OMP - Pierre VERT
+Author URI:   http://sedoo.fr
+Version: 1.7.2
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: portal-serviceedu
+Tags:
+GitHub Theme URI: 
+GitHub Branch: master
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+aeris is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
+*/
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -559,8 +584,12 @@ body > header h1 {
 }
 
 [href*="scoop.it"]::before {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 5px;
     margin-right: 10px;
-    padding: 12px;
     content: "";
     background : url(images/it_24.png) no-repeat center center;
 }
