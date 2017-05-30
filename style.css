@@ -593,6 +593,16 @@ body > header h1 {
     content: "";
     background : url(images/it_24.png) no-repeat center center;
 }
+[href*="propos"]::before {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+    content: "";
+    background : url(images/echange.png) no-repeat center center;
+}
 
 @media (min-width:360px) {                    /*------------  360px  --------------------------*/
     body > header h1 {
