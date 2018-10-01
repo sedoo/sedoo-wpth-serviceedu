@@ -53,7 +53,7 @@ register_taxonomy(
     'show_ui'   => true
   )
 );   
-    
+
 // Niveau pour fiches pédagogiques
 register_taxonomy(
   'niveau',
