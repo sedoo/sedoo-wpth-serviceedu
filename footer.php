@@ -24,7 +24,7 @@
     <section role="tutelles">
         <figure>
             <a href="http://http://www.ac-toulouse.fr/" title="Lien vers le site de l'Académie de Toulouse">
-                <img src="<?php bloginfo( 'template_url' ); ?>/images/ac-toulouse_logo.jpg" alt="">
+                <img src="<?php bloginfo( 'template_url' ); ?>/images/logo_academieToulouse.png" alt="">
             </a>
             <figcaption>
                 <a href="http://http://www.ac-toulouse.fr/" title="Lien vers le site de l'Académie de Toulouse">Académie de Toulouse</a>
