@@ -27,7 +27,9 @@ register_taxonomy(
         'popular_items' => 'Thematiques les plus utilisées'
       ),
     'hierarchical' => true,
-    'show_ui'   => true
+    'show_ui'   => true,
+    'show_in_rest'  => true
+
   )
 );   
       
@@ -50,7 +52,8 @@ register_taxonomy(
         'popular_items' => 'Types de ressources les plus utilisés'
       ),
     'hierarchical' => true,
-    'show_ui'   => true
+    'show_ui'   => true,
+    'show_in_rest'  => true
   )
 );   
 
@@ -73,7 +76,8 @@ register_taxonomy(
         'popular_items' => 'Niveaux les plus utilisés'
       ),
     'hierarchical' => true,
-    'show_ui'   => true
+    'show_ui'   => true,
+    'show_in_rest'  => true
   )
 );       
 
@@ -96,7 +100,8 @@ register_taxonomy(
         'popular_items' => 'Mots clés les plus utilisées'
       ),
     'hierarchical' => true,
-    'show_ui'   => true
+    'show_ui'   => true,
+    'show_in_rest'  => true
   )
 );       
     
