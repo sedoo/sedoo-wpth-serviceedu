@@ -4,7 +4,7 @@ Theme URI:    https://github.com/sedoo/sedoo-wpth-serviceedu
 Description:  Theme worpdress portail service éducatif OMP
 Author:       SEDOO OMP - Pierre VERT
 Author URI:   http://sedoo.fr
-Version: 1.8.1
+Version: 1.9.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: portal-serviceedu
@@ -305,11 +305,16 @@ img {
 
 /*--------------------------------*/
 
-p a {
+p a,
+.tag-cloud-link{
     color:#1F7E9E;
 }
 p a:hover {
     color:#E25B3D;
+}
+
+.tag-cloud-link{
+    padding-right:10px;
 }
 
 a.tag,
@@ -1387,6 +1392,41 @@ a[class*="th"]:hover {
 
 iframe {
     max-width: 100%;
+}
+
+
+/*** SEARCH RESULT  */
+
+.search-results article {
+    border:1px solid #EEE;
+}
+
+nav.posts-navigation {
+    width: 100%;
+}
+
+.nav-links {
+    width: 500px;
+    margin:30px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-links > div {
+
+}
+.nav-links > div a {
+    color: #333;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    position: relative;
+    border: 1px solid #DDD;
+    text-decoration: none;
+}
+.nav-links > div a:hover {
+    background: #333;
+    color: #FFF;
 }
 
 /*** MEDIA QUERIES
