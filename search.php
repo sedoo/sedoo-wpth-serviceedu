@@ -10,14 +10,15 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<header class="page-header">
+				<h1 class="page-title"><?php printf( esc_html__( 'Résultats pour: %s', 'portal-serviceedu' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			</header><!-- .page-header -->
+		<main id="main" class="site-main embed" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
+			 <section class="twoColumns">
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'portal-serviceedu' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
 
 			<?php
 			/* Start the Loop */
@@ -28,10 +29,13 @@ get_header(); ?>
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', 'search' );
+				// get_template_part( 'template-parts/content', 'search' );
+				get_template_part( 'template-parts/content', 'embed-page' );
 
 			endwhile;
-
+			?>
+			</section>
+			<?php
 			the_posts_navigation();
 
 		else :
@@ -39,6 +43,7 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
+			
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
