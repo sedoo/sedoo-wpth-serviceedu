@@ -124,6 +124,17 @@ get_header();
                <?php include('side-nav.php');?>          
 
             </section>
+            <section>
+            <?php 
+                $args = array(
+                    'taxonomy' => array( 'post_tag', 'motcle' ), 
+                    'smallest'  =>  9,
+                    'largest'   =>  20,
+                    'number'    =>  50,
+                ); 
+                wp_tag_cloud( $args );
+            ?>
+            </section>
             
             
        </aside>
