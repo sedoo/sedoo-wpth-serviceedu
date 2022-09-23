@@ -67,7 +67,7 @@ function related_list_pages($arg){
     if ( $queryRelatedListPages->have_posts() ) {
         while ( $queryRelatedListPages->have_posts() ) :
             $queryRelatedListPages->the_post();
-            
+            global $post;
             $theme = get_the_terms( $post->ID, 'thematique');
             
             $typeressources = get_the_terms( $post->ID, 'typeressource'); 

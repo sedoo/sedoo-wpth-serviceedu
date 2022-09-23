@@ -103,7 +103,7 @@ get_header();
                     'order'    => 'ASC',
                     'hide_empty' => 0
                 );
-                taxonomies_list(typeressource, $argsTerms);
+                taxonomies_list("typeressource", $argsTerms);
                 ?>
                 <h2 class="niveaux">Niveaux</h2>
                <?php
@@ -116,7 +116,7 @@ get_header();
                         'order'      => 'ASC',
                         'hide_empty' => 0
                     );
-                taxonomies_list(niveau, $argsTerms);
+                taxonomies_list("niveau", $argsTerms);
                 ?>
             </section>
             <section>

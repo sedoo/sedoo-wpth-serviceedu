@@ -75,6 +75,7 @@ function taxonomies_list($taxonomy_name, $argsTerms) {
     $terms=get_terms($argsTerms);
     if  ($terms) {    
         // concatenation de la liste dans $termsList pour préparer le code html généré 
+        $termsList="";
       foreach ($terms  as $term ) {
         $termsList.='<a href="'.site_url().'/'.$taxonomy_name.'/'.$term->slug.'" class="tag">
                        <span class="icon-'.$term->slug.'"></span> '.$term->name.'  <span class="badge">'.$term->count.'</span></a> ';
@@ -95,6 +96,7 @@ function taxonomies_secondFilter_list($masterTaxonomyName, $masterTermSlug, $tax
     $terms=get_terms($argsTerms); 
     if  ($terms) {    
         // concatenation de la liste dans $termsList pour préparer le code html généré 
+      $termsList="";
       $i=1;
       foreach ($terms  as $term ) {
           
