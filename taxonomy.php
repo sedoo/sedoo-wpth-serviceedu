@@ -39,7 +39,7 @@ if (is_tax('thematique', $term)) {
             'order'    => 'ASC',
             'hide_empty' => 0
         );
-taxonomies_secondFilter_list(thematique, $term, typeressource, $argsTerms);
+taxonomies_secondFilter_list("thematique", $term, "typeressource", $argsTerms);
 }
       
 if (is_tax('typeressource', $term)) {
@@ -48,7 +48,7 @@ $argsTerms = array(
             'order'    => 'ASC',
             'hide_empty' => 1
         );
-taxonomies_secondFilter_list(typeressource, $term, thematique, $argsTerms);
+taxonomies_secondFilter_list("typeressource", $term, "thematique", $argsTerms);
 }
       
 if (is_tax('niveau', $term)) {
@@ -57,7 +57,7 @@ $argsTerms = array(
             'order'    => 'ASC',
             'hide_empty' => 0
         );
-taxonomies_secondFilter_list(niveau, $term, thematique, $argsTerms);
+taxonomies_secondFilter_list("niveau", $term, "thematique", $argsTerms);
 }   
 
 if (is_tax('motcle', $term)) {
@@ -66,18 +66,19 @@ $argsTerms = array(
             'order'    => 'ASC',
             'hide_empty' => 0
         );
-taxonomies_secondFilter_list(motcle, $term, typeressource, $argsTerms);
+taxonomies_secondFilter_list("motcle", $term, "typeressource", $argsTerms);
 } 
       
 /********************************************************************************/      
-      
+// exclusions
+// recup options de "Custom Settings" dans backoffice
+$exclude_idsListPages=explode(",", get_option('idPageExcluded'));
+
 // Requete différente si le 2eme niveau de filtre est chargé
-if ($_GET['second_filter']) {
+if (isset($_GET['second_filter'])) {
     // WP_Query arguments
 
-    // exclusions
-    // recup options de "Custom Settings" dans backoffice
-    $exclude_idsListPages=explode(",", get_option('idPageExcluded'));
+
 
     $argsListPages = array (
         'post_type'             => array( 'page' ),

@@ -30,9 +30,9 @@ if( $typeressources ){
 
 ?>
 <article>
-   <?php echo $outputTheme;?>
+   <?php if (isset($outputTheme)) {echo $outputTheme;}?>
     <header>
-        <?php echo $outputTyperessource;?>
+        <?php if (isset($outputTyperessource)) {echo $outputTyperessource;}?>
         <h1>
            <a href="<?php the_permalink(); ?>">
             <?php the_title();?>
